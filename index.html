@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pickle and Platter</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Pickle & Platter</div>
+  <nav class="nav-links">
+    <a href="#">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="cart">🛒 <span id="cart-count">0</span></div>
+  <div class="menu-toggle">☰</div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Zindagi Mein Thoda Achaar Dalo</h1>
+    <button onclick="scrollToShop()">Shop Now</button>
+  </div>
+</section>
+
+<section class="filters" id="shop">
+  <button class="filter-btn active" data-category="all">All</button>
+  <button class="filter-btn" data-category="mango">Mango Pickles</button>
+  <button class="filter-btn" data-category="mixed">Mixed Pickles</button>
+  <button class="filter-btn" data-category="spicy">Spicy</button>
+  <button class="filter-btn" data-category="sweet">Sweet</button>
+</section>
+
+<section class="products" id="product-list">
+</section>
+
+<section class="features" id="about">
+  <h2>Why Choose Us</h2>
+  <div class="feature-grid">
+    <div>🍲 Homemade</div>
+    <div>🚫 No Preservatives</div>
+    <div>🇮🇳 Authentic Taste</div>
+    <div>🌿 Fresh Ingredients</div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>What Our Customers Say</h2>
+  <div class="testimonial">
+    <p>"Absolutely loved the mango pickle! Tastes like home."</p>
+  </div>
+  <div class="testimonial">
+    <p>"Perfect balance of spice and flavor. Highly recommended!"</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <h3>Pickle & Platter</h3>
+  <p>Bringing homemade flavors to your plate.</p>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,12 +1,12 @@
 const products = [
-  {name: "Mango Pickle", category: "mango", price: 199},
-  {name: "Mixed Pickle", category: "mixed", price: 249},
-  {name: "Spicy Lemon", category: "spicy", price: 179},
-  {name: "Sweet Mango", category: "sweet", price: 199},
-  {name: "Garlic Pickle", category: "spicy", price: 229},
-  {name: "Amla Pickle", category: "mixed", price: 189},
-  {name: "Chilli Pickle", category: "spicy", price: 209},
-  {name: "Sweet Lime", category: "sweet", price: 199}
+  {name: "Royal Mango Pickle", category: "mango", price: 299},
+  {name: "Grandma Mixed Pickle", category: "mixed", price: 349},
+  {name: "Spicy Lemon Reserve", category: "spicy", price: 279},
+  {name: "Sweet Mango Delight", category: "sweet", price: 299},
+  {name: "Garlic Spice Blend", category: "spicy", price: 329},
+  {name: "Amla Heritage Pickle", category: "mixed", price: 289},
+  {name: "Chilli Fire Pickle", category: "spicy", price: 319},
+  {name: "Sweet Lime Classic", category: "sweet", price: 299}
 ];
 
 const productList = document.getElementById("product-list");
@@ -20,10 +20,12 @@ function renderProducts(filter = "all") {
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `
-      <img src="https://via.placeholder.com/200">
-      <h4>${p.name}</h4>
-      <p>₹${p.price}</p>
-      <button onclick="addToCart()">Add to Cart</button>
+      <img src="https://via.placeholder.com/300x200">
+      <div class="product-content">
+        <h4>${p.name}</h4>
+        <p>₹${p.price}</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
     `;
     productList.appendChild(div);
   });

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pickle and Platter</title>
+  <title>Pickle & Platter</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -17,51 +17,56 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
-  <div class="cart">🛒 <span id="cart-count">0</span></div>
-  <div class="menu-toggle">☰</div>
+  <div class="nav-right">
+    <div class="cart">🛒 <span id="cart-count">0</span></div>
+    <div class="menu-toggle">☰</div>
+  </div>
 </header>
 
 <section class="hero">
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Zindagi Mein Thoda Achaar Dalo</h1>
+    <p>Handcrafted pickles made with tradition & love</p>
     <button onclick="scrollToShop()">Shop Now</button>
   </div>
 </section>
 
 <section class="filters" id="shop">
   <button class="filter-btn active" data-category="all">All</button>
-  <button class="filter-btn" data-category="mango">Mango Pickles</button>
-  <button class="filter-btn" data-category="mixed">Mixed Pickles</button>
+  <button class="filter-btn" data-category="mango">Mango</button>
+  <button class="filter-btn" data-category="mixed">Mixed</button>
   <button class="filter-btn" data-category="spicy">Spicy</button>
   <button class="filter-btn" data-category="sweet">Sweet</button>
 </section>
 
-<section class="products" id="product-list">
-</section>
+<section class="products" id="product-list"></section>
 
 <section class="features" id="about">
   <h2>Why Choose Us</h2>
   <div class="feature-grid">
-    <div>🍲 Homemade</div>
-    <div>🚫 No Preservatives</div>
-    <div>🇮🇳 Authentic Taste</div>
-    <div>🌿 Fresh Ingredients</div>
+    <div class="feature-card">🍲<h4>Homemade</h4></div>
+    <div class="feature-card">🚫<h4>No Preservatives</h4></div>
+    <div class="feature-card">🇮🇳<h4>Authentic Taste</h4></div>
+    <div class="feature-card">🌿<h4>Fresh Ingredients</h4></div>
   </div>
 </section>
 
 <section class="testimonials">
-  <h2>What Our Customers Say</h2>
+  <h2>Customer Love</h2>
   <div class="testimonial">
-    <p>"Absolutely loved the mango pickle! Tastes like home."</p>
+    <p>"Best pickle brand I've ever tried. Premium quality!"</p>
+    <span>- Priya S.</span>
   </div>
   <div class="testimonial">
-    <p>"Perfect balance of spice and flavor. Highly recommended!"</p>
+    <p>"Feels like my grandma made it. Authentic and rich."</p>
+    <span>- Rahul K.</span>
   </div>
 </section>
 
 <footer id="contact">
   <h3>Pickle & Platter</h3>
-  <p>Bringing homemade flavors to your plate.</p>
+  <p>Zindagi Mein Thoda Achaar Dalo</p>
   <div class="footer-links">
     <a href="#">Home</a>
     <a href="#">Shop</a>

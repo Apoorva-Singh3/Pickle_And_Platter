@@ -3,234 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pickle & Platter – Shop Achaar</title>
+  <title>Pickle and Platter</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ANNOUNCEMENT BAR -->
-  <div class="announcement-bar">
-    🎉 Free shipping on orders above ₹499 &nbsp;|&nbsp; Use code <strong>ACHAAR10</strong> for 10% off your first order!
+<header class="navbar">
+  <div class="logo">Pickle & Platter</div>
+  <nav class="nav-links">
+    <a href="#">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="cart">🛒 <span id="cart-count">0</span></div>
+  <div class="menu-toggle">☰</div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Zindagi Mein Thoda Achaar Dalo</h1>
+    <button onclick="scrollToShop()">Shop Now</button>
   </div>
+</section>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="logo-wrap">
-        <img src="Pickle___Platter_Logo.jpeg" alt="Pickle and Platter" class="logo-img"/>
-      </div>
-      <nav class="nav">
-        <a href="#">Home</a>
-        <a href="#" class="active">Shop</a>
-        <a href="#">Our Story</a>
-        <a href="#">Recipes</a>
-        <a href="#">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <button class="icon-btn" id="searchToggle" aria-label="Search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </button>
-        <button class="icon-btn" aria-label="Wishlist">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </button>
-        <button class="icon-btn cart-btn" id="cartToggle" aria-label="Cart">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          <span class="cart-count" id="cartCount">0</span>
-        </button>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-    <!-- Search Bar -->
-    <div class="search-bar" id="searchBar">
-      <input type="text" id="searchInput" placeholder="Search for achaar, pickles, chutneys…" />
-      <button onclick="filterProducts()">Search</button>
-    </div>
-    <!-- Mobile Nav -->
-    <div class="mobile-nav" id="mobileNav">
-      <a href="#">Home</a>
-      <a href="#" class="active">Shop</a>
-      <a href="#">Our Story</a>
-      <a href="#">Recipes</a>
-      <a href="#">Contact</a>
-    </div>
-  </header>
+<section class="filters" id="shop">
+  <button class="filter-btn active" data-category="all">All</button>
+  <button class="filter-btn" data-category="mango">Mango Pickles</button>
+  <button class="filter-btn" data-category="mixed">Mixed Pickles</button>
+  <button class="filter-btn" data-category="spicy">Spicy</button>
+  <button class="filter-btn" data-category="sweet">Sweet</button>
+</section>
 
-  <!-- HERO BANNER -->
-  <section class="hero">
-    <div class="hero-content">
-      <p class="hero-tag">Handcrafted with love</p>
-      <h1 class="hero-title">Zindagi Mein Thoda<br/><span>Achaar Dalo</span></h1>
-      <p class="hero-sub">Authentic Indian pickles & condiments, made the traditional way — no preservatives, just pure flavour.</p>
-      <a href="#products" class="hero-cta">Shop All Achaar ↓</a>
-    </div>
-    <div class="hero-decor">
-      <div class="jar jar-1"></div>
-      <div class="jar jar-2"></div>
-      <div class="jar jar-3"></div>
-    </div>
-  </section>
+<section class="products" id="product-list">
+</section>
 
-  <!-- CATEGORY PILLS -->
-  <section class="categories">
-    <div class="categories-inner">
-      <button class="pill active" data-filter="all">All Products</button>
-      <button class="pill" data-filter="mango">Mango Achaar</button>
-      <button class="pill" data-filter="mixed">Mixed Achaar</button>
-      <button class="pill" data-filter="lemon">Lemon &amp; Citrus</button>
-      <button class="pill" data-filter="chilli">Chilli &amp; Spicy</button>
-      <button class="pill" data-filter="combo">Combo Packs</button>
-    </div>
-  </section>
-
-  <!-- SORT + COUNT BAR -->
-  <section class="shop-bar">
-    <div class="shop-bar-inner">
-      <p class="product-count" id="productCount">Showing 9 products</p>
-      <div class="sort-wrap">
-        <label for="sortSelect">Sort by:</label>
-        <select id="sortSelect" onchange="sortProducts()">
-          <option value="default">Featured</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="name-asc">Name: A–Z</option>
-        </select>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCT GRID -->
-  <main class="product-section" id="products">
-    <div class="product-grid" id="productGrid">
-      <!-- Products injected by JS -->
-    </div>
-    <div class="no-results" id="noResults" style="display:none;">
-      <p>No products found. Try a different search or filter.</p>
-    </div>
-  </main>
-
-  <!-- WHY US STRIP -->
-  <section class="why-us">
-    <div class="why-inner">
-      <div class="why-item">
-        <div class="why-icon">🌿</div>
-        <p class="why-title">100% Natural</p>
-        <p class="why-sub">No artificial preservatives or colours</p>
-      </div>
-      <div class="why-item">
-        <div class="why-icon">🏺</div>
-        <p class="why-title">Traditional Recipes</p>
-        <p class="why-sub">Passed down through generations</p>
-      </div>
-      <div class="why-item">
-        <div class="why-icon">🚚</div>
-        <p class="why-title">Fast Delivery</p>
-        <p class="why-sub">Pan-India shipping in 3–5 days</p>
-      </div>
-      <div class="why-item">
-        <div class="why-icon">🔒</div>
-        <p class="why-title">Secure Payments</p>
-        <p class="why-sub">UPI, Cards, Net Banking accepted</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <h2 class="section-title">What Our Customers Say</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"The mango achaar takes me straight back to my nani's kitchen. Pure nostalgia in a jar!"</p>
-        <span>— Priya S., Mumbai</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"Finally an achaar that isn't drowning in oil. The flavour is bold, balanced, and absolutely addictive."</p>
-        <span>— Rahul K., Delhi</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"Ordered the combo pack as a gift — my parents absolutely loved it. Will definitely order again!"</p>
-        <span>— Sneha M., Bhopal</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER -->
-  <section class="newsletter">
-    <div class="newsletter-inner">
-      <h2>Get Recipes &amp; Exclusive Offers</h2>
-      <p>Join our flavour-loving community and get 10% off your first order.</p>
-      <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-        <input type="email" placeholder="Enter your email…" required />
-        <button type="submit">Subscribe</button>
-      </form>
-      <p class="newsletter-note" id="newsletterMsg"></p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="Pickle___Platter_Logo.jpeg" alt="Pickle and Platter" class="footer-logo"/>
-        <p>"Zindagi Mein Thoda Achaar Dalo"</p>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
-        <a href="#">Our Story</a>
-        <a href="#">FAQs</a>
-        <a href="#">Contact Us</a>
-      </div>
-      <div class="footer-links">
-        <h4>Policies</h4>
-        <a href="#">Shipping Policy</a>
-        <a href="#">Return Policy</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-      <div class="footer-contact">
-        <h4>Connect With Us</h4>
-        <p>📧 hello@pickleandplatter.in</p>
-        <p>📞 +91 98765 43210</p>
-        <div class="social-links">
-          <a href="#" aria-label="Instagram">📸 Instagram</a>
-          <a href="#" aria-label="Facebook">👍 Facebook</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Pickle &amp; Platter. All rights reserved. Made with ❤️ in India.</p>
-    </div>
-  </footer>
-
-  <!-- CART DRAWER -->
-  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-  <div class="cart-drawer" id="cartDrawer">
-    <div class="cart-header">
-      <h3>Your Cart</h3>
-      <button class="close-cart" onclick="closeCart()">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems">
-      <p class="cart-empty">Your cart is empty.</p>
-    </div>
-    <div class="cart-footer" id="cartFooter" style="display:none;">
-      <div class="cart-total">
-        <span>Total</span>
-        <span id="cartTotal">₹0</span>
-      </div>
-      <button class="checkout-btn">Proceed to Checkout</button>
-    </div>
+<section class="features" id="about">
+  <h2>Why Choose Us</h2>
+  <div class="feature-grid">
+    <div>🍲 Homemade</div>
+    <div>🚫 No Preservatives</div>
+    <div>🇮🇳 Authentic Taste</div>
+    <div>🌿 Fresh Ingredients</div>
   </div>
+</section>
 
-  <!-- TOAST -->
-  <div class="toast" id="toast"></div>
+<section class="testimonials">
+  <h2>What Our Customers Say</h2>
+  <div class="testimonial">
+    <p>"Absolutely loved the mango pickle! Tastes like home."</p>
+  </div>
+  <div class="testimonial">
+    <p>"Perfect balance of spice and flavor. Highly recommended!"</p>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<footer id="contact">
+  <h3>Pickle & Platter</h3>
+  <p>Bringing homemade flavors to your plate.</p>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -192,7 +192,6 @@ function renderProducts(filter = "all") {
     div.classList.add("product");
 
     div.innerHTML = `
-      // <img src="https://via.placeholder.com/300x200" alt="${p.name}">
       <img src="https://via.placeholder.com/300x200">
       
       <div class="product-content">

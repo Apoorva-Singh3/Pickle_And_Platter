@@ -157,32 +157,22 @@ const products = [
     price: 349
   },
   {
-    name: "Spiced Turmeric Powder (Buknu)",
+    name: "Spiced Turmeric Powder <br><span class='prepaid-note'>(Buknu)</span>",
     category: "healthy-bites",
     price: 189
   },
 
   // Non-Vegetarian Indian Achaar
   {
-    name: "Prawn Pickle (on prepaid orders)",
+    name: "Prawn Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
     category: "non-vegetarian-achaar",
     price: 499
   },
   {
-    name: "Chicken Pickle (on prepaid orders)",
+    name: "Chicken Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
     category: "non-vegetarian-achaar",
     price: 449
   }
-  // {
-  //   name: "Prawn Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
-  //   category: "non-vegetarian-achaar",
-  //   price: 499
-  // },
-  // {
-  //   name: "Chicken Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
-  //   category: "non-vegetarian-achaar",
-  //   price: 449
-  // }
 ];
 
 const productList = document.getElementById("product-list");

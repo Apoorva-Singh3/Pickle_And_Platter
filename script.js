@@ -163,26 +163,26 @@ const products = [
   },
 
   // Non-Vegetarian Indian Achaar
-  // {
-  //   name: "Prawn Pickle /n (on prepaid orders)",
-  //   category: "non-vegetarian-achaar",
-  //   price: 499
-  // },
-  // {
-  //   name: "Chicken Pickle /n (on prepaid orders)",
-  //   category: "non-vegetarian-achaar",
-  //   price: 449
-  // }
   {
-    name: "Prawn Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
+    name: "Prawn Pickle (on prepaid orders)",
     category: "non-vegetarian-achaar",
     price: 499
   },
   {
-    name: "Chicken Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
+    name: "Chicken Pickle (on prepaid orders)",
     category: "non-vegetarian-achaar",
     price: 449
   }
+  // {
+  //   name: "Prawn Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
+  //   category: "non-vegetarian-achaar",
+  //   price: 499
+  // },
+  // {
+  //   name: "Chicken Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
+  //   category: "non-vegetarian-achaar",
+  //   price: 449
+  // }
 ];
 
 const productList = document.getElementById("product-list");

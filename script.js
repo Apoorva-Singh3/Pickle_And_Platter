@@ -164,12 +164,12 @@ const products = [
 
   // Non-Vegetarian Indian Achaar
   {
-    name: "Prawn Pickle",
+    name: "Prawn Pickle /n (on prepaid orders)",
     category: "non-vegetarian-achaar",
     price: 499
   },
   {
-    name: "Chicken Pickle",
+    name: "Chicken Pickle /n (on prepaid orders)",
     category: "non-vegetarian-achaar",
     price: 449
   }

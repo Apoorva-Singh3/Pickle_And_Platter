@@ -51,52 +51,6 @@ body {
 }
 
 /* HERO */
-/* .hero {
-  position: relative;
-  height: 80vh;
-  background: url('https://images.unsplash.com/photo-1604908176997-4315b1b98c1c') center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(139,30,30,0.85), rgba(0,0,0,0.4));
-}
-
-.hero-content {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-}
-
-.hero p {
-  margin-top: 10px;
-  opacity: 0.9;
-}
-
-.hero button {
-  margin-top: 20px;
-  padding: 12px 28px;
-  border-radius: 30px;
-  border: none;
-  background: #E5A100;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero button:hover {
-  transform: scale(1.05);
-} */
-
-/* HERO */
 .hero {
   position: relative;
   height: 80vh;

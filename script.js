@@ -160,7 +160,7 @@ const products = [
     name: "Amla Laddu",
     category: "healthy-bites",
     price: 249,
-    image: "images/Amla laddoo.png"
+    image: "images/Amla laddu.png"
   },
   {
     name: "Sukha Amla Bites",

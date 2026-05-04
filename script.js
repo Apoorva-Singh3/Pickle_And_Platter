@@ -146,13 +146,13 @@ const products = [
     name: "Red Chilli Chutney (Dry Thecha)",
     category: "indian-chutneys",
     price: 249,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Red chilli chutney(dry thecha).png"
   },
   {
     name: "Sweet Amla Chutney",
     category: "indian-chutneys",
     price: 229,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Sweet amla chutney.png"
   },
 
   // Healthy Bites
@@ -160,31 +160,31 @@ const products = [
     name: "Amla Laddu",
     category: "healthy-bites",
     price: 249,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Amla laddoo.png"
   },
   {
     name: "Sukha Amla Bites",
     category: "healthy-bites",
     price: 219,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Sukha amla bites.png"
   },
   {
     name: "Seed Laddu",
     category: "healthy-bites",
     price: 299,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Seed laddu(pumpkin,chia,flax sunflower seeds).png"
   },
   {
     name: "Dry Fruits Laddu",
     category: "healthy-bites",
     price: 349,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Dry fruits laddu.png"
   },
   {
     name: "Spiced Turmeric Powder <br><span class='prepaid-note'>(Buknu)</span>",
     category: "healthy-bites",
     price: 189,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Spiced turmeric powder(buknu).png"
   },
 
   // Non-Vegetarian Indian Achaar
@@ -192,13 +192,13 @@ const products = [
     name: "Prawn Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
     category: "non-vegetarian-achaar",
     price: 499,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Prawn Pickle.png"
   },
   {
     name: "Chicken Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
     category: "non-vegetarian-achaar",
     price: 449,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Chicken Pickle.png"
   }
 ];
 

@@ -36,79 +36,79 @@ const products = [
     name: "Meetha Aam Achaar",
     category: "fruit-based-indian-achaar",
     price: 299,
-    image: "images/Meetha_Aam_Achaar.png"
+    image: "images/Meetha Aam Achaar 1.png"
   },
   {
     name: "Kairi Lahsun Achaar",
     category: "fruit-based-indian-achaar",
     price: 329,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Kairi Lahsun Achaar.png"
   },
   {
     name: "Aam Gur Achaar",
     category: "fruit-based-indian-achaar",
     price: 349,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Aam Gur Achaar.png"
   },
   {
     name: "Chunda (Mango)",
     category: "fruit-based-indian-achaar",
     price: 319,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Chunda (Mango).png"
   },
   {
     name: "Kaccha Aam Mustard Pickle",
     category: "fruit-based-indian-achaar",
     price: 339,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Kaccha Aam Mustard Pickle.png"
   },
   {
     name: "Amla Achaar",
     category: "fruit-based-indian-achaar",
     price: 289,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Amla Achaar.png"
   },
   {
     name: "Lemon Achaar",
     category: "fruit-based-indian-achaar",
     price: 279,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Lemon Achaar.png"
   },
   {
     name: "Sweet Lemon Pickle",
     category: "fruit-based-indian-achaar",
     price: 299,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Sweet Lemon Pickle.png"
   },
   {
     name: "Lime Chilli Pickle",
     category: "fruit-based-indian-achaar",
     price: 309,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Lime Chilli Pickle.png"
   },
   {
     name: "Jackfruit Pickle (Kathal)",
     category: "fruit-based-indian-achaar",
     price: 359,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Jackfruit Pickle (Kathal).png"
   },
   {
     name: "Karonda Pickle",
     category: "fruit-based-indian-achaar",
     price: 329,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Karonda Pickle.png"
   },
   {
     name: "Tamarind Pickle",
     category: "fruit-based-indian-achaar",
     price: 299,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Tamarind Pickle.png"
   },
   {
     name: "Sweet Tamarind Achaar",
     category: "fruit-based-indian-achaar",
     price: 319,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Sweet Tamarind Achaar.png"
   },
 
   // Indian Chutneys
@@ -116,31 +116,31 @@ const products = [
     name: "Green Chilli Lehsun Chutney",
     category: "indian-chutneys",
     price: 199,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Green chilli lehsun chutney.png"
   },
   {
     name: "Sweet Lemon Chutney",
     category: "indian-chutneys",
     price: 219,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Sweet lemon chutney.png"
   },
   {
     name: "Mango Chutney",
     category: "indian-chutneys",
     price: 229,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/meeMango chutney.png"
   },
   {
     name: "Jimikanda Chutney",
     category: "indian-chutneys",
     price: 239,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Jimikanda chutney.png"
   },
   {
     name: "Tomato Chutney",
     category: "indian-chutneys",
     price: 199,
-    image: "images/meetha-aam-achaar.jpg"
+    image: "images/Tomato chutney.png"
   },
   {
     name: "Red Chilli Chutney (Dry Thecha)",

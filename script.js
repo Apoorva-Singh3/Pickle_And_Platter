@@ -128,7 +128,7 @@ const products = [
     name: "Mango Chutney",
     category: "indian-chutneys",
     price: 229,
-    image: "images/meeMango chutney.png"
+    image: "images/Mango chutney.png"
   },
   {
     name: "Jimikanda Chutney",

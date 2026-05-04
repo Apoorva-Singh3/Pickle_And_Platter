@@ -54,7 +54,7 @@ const products = [
     name: "Chunda (Mango)",
     category: "fruit-based-indian-achaar",
     price: 319,
-    image: "images/Chunda (Mango).png"
+    image: "images/Chunda (mango).png"
   },
   {
     name: "Kaccha Aam Mustard Pickle",

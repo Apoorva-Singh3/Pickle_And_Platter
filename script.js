@@ -1,35 +1,45 @@
-// const products = [
-//   {name: "Royal Mango Pickle", category: "mango", price: 299},
-//   {name: "Grandma Mixed Pickle", category: "mixed", price: 349},
-//   {name: "Spicy Lemon Reserve", category: "spicy", price: 279},
-//   {name: "Sweet Mango Delight", category: "sweet", price: 299},
-//   {name: "Garlic Spice Blend", category: "spicy", price: 329},
-//   {name: "Amla Heritage Pickle", category: "mixed", price: 289},
-//   {name: "Chilli Fire Pickle", category: "spicy", price: 319},
-//   {name: "Sweet Lime Classic", category: "sweet", price: 299}
-// ];
+// ===== HEADER & FOOTER INCLUDE =====
 
-// const productList = document.getElementById("product-list");
-// let cartCount = 0;
+function loadHeaderFooter() {
+  const header = `
+    <header class="navbar">
+      <div class="logo">Pickle & Platter</div>
 
-// function renderProducts(filter = "all") {
-//   productList.innerHTML = "";
-//   const filtered = filter === "all" ? products : products.filter(p => p.category === filter);
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-//   filtered.forEach(p => {
-//     const div = document.createElement("div");
-//     div.classList.add("product");
-//     div.innerHTML = `
-//       <img src="https://via.placeholder.com/300x200">
-//       <div class="product-content">
-//         <h4>${p.name}</h4>
-//         <p>₹${p.price}</p>
-//         <button onclick="addToCart()">Add to Cart</button>
-//       </div>
-//     `;
-//     productList.appendChild(div);
-//   });
-// }
+      <div class="nav-right">
+        <div class="cart">🛒 <span id="cart-count">0</span></div>
+        <div class="menu-toggle">☰</div>
+      </div>
+    </header>
+  `;
+
+  const footer = `
+    <footer>
+      <h3>Pickle & Platter</h3>
+      <p>Zindagi Mein Thoda Achaar Dalo</p>
+
+      <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+        <a href="shipping.html">Shipping Policy</a>
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+    </footer>
+  `;
+
+  document.getElementById("header").innerHTML = header;
+  document.getElementById("footer").innerHTML = footer;
+}
+
 const products = [
   // Fruit-Based Indian Achaars
   {
@@ -248,8 +258,40 @@ function scrollToShop() {
   document.getElementById("shop").scrollIntoView({behavior: "smooth"});
 }
 
-document.querySelector(".menu-toggle").addEventListener("click", () => {
-  document.querySelector(".nav-links").classList.toggle("show");
+// document.querySelector(".menu-toggle").addEventListener("click", () => {
+//   document.querySelector(".nav-links").classList.toggle("show");
+// });
+
+// renderProducts();
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadHeaderFooter();
+
+  // Existing features safely
+  if (document.querySelector(".menu-toggle")) {
+    document.querySelector(".menu-toggle").addEventListener("click", () => {
+      document.querySelector(".nav-links").classList.toggle("show");
+    });
+  }
+
+  if (document.getElementById("product-list")) {
+    renderProducts();
+  }
+
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelector(".active")?.classList.remove("active");
+      btn.classList.add("active");
+      renderProducts(btn.dataset.category);
+    });
+  });
 });
 
-renderProducts();
+const currentPage = window.location.pathname.split("/").pop();
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.style.color = "#8B1E1E";
+    link.style.fontWeight = "600";
+  }
+});

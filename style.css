@@ -289,3 +289,69 @@ footer {
   object-fit: cover;
   border-radius: 12px 12px 0 0;
 }
+
+/* PAGE HERO (for inner pages) */
+.page-hero {
+  position: relative;
+  height: 40vh;
+  background: url('https://images.unsplash.com/photo-1604908176997-4315b1b98c1c') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-hero h1 {
+  font-size: 42px;
+}
+
+.page-hero p {
+  opacity: 0.9;
+}
+
+/* PAGE CONTENT */
+.page-content {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.content-box {
+  max-width: 900px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  line-height: 1.7;
+}
+
+/* TYPOGRAPHY */
+.content-box h1,
+.content-box h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+  color: #8B1E1E;
+}
+
+.content-box p {
+  margin-bottom: 15px;
+}
+
+.content-box ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.content-box li {
+  margin-bottom: 10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .content-box {
+    padding: 20px;
+  }
+
+  .page-hero h1 {
+    font-size: 28px;
+  }
+}

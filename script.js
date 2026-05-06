@@ -68,7 +68,7 @@ function loadHero() {
 
   if (page === "privacy.html") {
     title = "Privacy Policy";
-    subtitle = "Your data is secure";
+    subtitle = "Your privacy and data security matter to us";
     showButton = false;
   }
 

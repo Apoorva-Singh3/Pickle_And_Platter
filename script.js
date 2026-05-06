@@ -40,6 +40,82 @@ function loadHeaderFooter() {
   document.getElementById("footer").innerHTML = footer;
 }
 
+function loadHero() {
+  const page = window.location.pathname.split("/").pop();
+
+  let title = "Zindagi Mein Thoda Achaar Dalo";
+  let subtitle = "Handcrafted pickles made with tradition & love";
+  let showButton = true;
+
+  // Page-wise customization
+  if (page === "about.html") {
+    title = "About Us";
+    subtitle = "Know our story & tradition";
+    showButton = false;
+  }
+
+  if (page === "contact.html") {
+    title = "Contact Us";
+    subtitle = "We’d love to hear from you";
+    showButton = false;
+  }
+
+  if (page === "terms.html") {
+    title = "Terms & Conditions";
+    subtitle = "Please read carefully";
+    showButton = false;
+  }
+
+  if (page === "privacy.html") {
+    title = "Privacy Policy";
+    subtitle = "Your data is सुरक्षित";
+    showButton = false;
+  }
+
+  if (page === "refund.html") {
+    title = "Refund Policy";
+    subtitle = "Our return guidelines";
+    showButton = false;
+  }
+
+  if (page === "shipping.html") {
+    title = "Shipping Policy";
+    subtitle = "Delivery information";
+    showButton = false;
+  }
+
+  if (page === "disclaimer.html") {
+    title = "Disclaimer";
+    subtitle = "Important information";
+    showButton = false;
+  }
+
+  const hero = `
+    <section class="hero">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <img
+          src="images/Pickle_&_Platter_Logo_1.jpg"
+          alt="Pickle and Platter Logo"
+          class="hero-logo"
+        />
+
+        <h1>${title}</h1>
+        <p>${subtitle}</p>
+
+        ${
+          showButton
+            ? `<button onclick="scrollToShop()">Shop Now</button>`
+            : `<a href="index.html#shop"><button>Shop Now</button></a>`
+        }
+      </div>
+    </section>
+  `;
+
+  document.getElementById("hero").innerHTML = hero;
+}
+
 const products = [
   // Fruit-Based Indian Achaars
   {
@@ -264,20 +340,49 @@ function scrollToShop() {
 
 // renderProducts();
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   loadHeaderFooter();
+
+//   // Existing features safely
+//   if (document.querySelector(".menu-toggle")) {
+//     document.querySelector(".menu-toggle").addEventListener("click", () => {
+//       document.querySelector(".nav-links").classList.toggle("show");
+//     });
+//   }
+
+//   if (document.getElementById("product-list")) {
+//     renderProducts();
+//   }
+
+//   document.querySelectorAll(".filter-btn").forEach(btn => {
+//     btn.addEventListener("click", () => {
+//       document.querySelector(".active")?.classList.remove("active");
+//       btn.classList.add("active");
+//       renderProducts(btn.dataset.category);
+//     });
+//   });
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   loadHeaderFooter();
+  loadHero();
 
-  // Existing features safely
-  if (document.querySelector(".menu-toggle")) {
-    document.querySelector(".menu-toggle").addEventListener("click", () => {
-      document.querySelector(".nav-links").classList.toggle("show");
-    });
-  }
+  // MENU TOGGLE (after header loads)
+  setTimeout(() => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    if (menuToggle) {
+      menuToggle.addEventListener("click", () => {
+        document.querySelector(".nav-links").classList.toggle("show");
+      });
+    }
+  }, 100);
 
+  // PRODUCTS ONLY ON HOME
   if (document.getElementById("product-list")) {
     renderProducts();
   }
 
+  // FILTERS
   document.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelector(".active")?.classList.remove("active");
@@ -295,3 +400,4 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     link.style.fontWeight = "600";
   }
 });
+

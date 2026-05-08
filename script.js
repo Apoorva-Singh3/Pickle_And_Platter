@@ -20,10 +20,7 @@ function loadHeaderFooter() {
   `;
 
   const footer = `
-    <footer>
-      <h3>Pickle & Platter</h3>
-      <p>Zindagi Mein Thoda Achaar Dalo</p>
-
+    <footer>      
       <div class="footer-links">
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>

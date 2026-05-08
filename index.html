@@ -1,87 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pickle & Platter</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
-<div id="header"></div>
+  <div id="header"></div>
 
-<div id="hero"></div>
+  <div id="hero"></div>
 
-<section class="filters" id="shop">
-  <button class="filter-btn active" data-category="all">
-    All
-  </button>
+  <section class="filters" id="shop">
+    <button class="filter-btn active" data-category="all">
+      All
+    </button>
 
-  <button
-    class="filter-btn"
-    data-category="fruit-based-indian-achaar"
-  >
-    Fruit-Based Indian Achaars
-  </button>
+    <button class="filter-btn" data-category="fruit-based-indian-achaar">
+      Fruit-Based Indian Achaars
+    </button>
 
-  <button
-    class="filter-btn"
-    data-category="indian-chutneys"
-  >
-    Indian Chutneys
-  </button>
+    <button class="filter-btn" data-category="indian-chutneys">
+      Indian Chutneys
+    </button>
 
-  <button
-    class="filter-btn"
-    data-category="healthy-bites"
-  >
-    Healthy Bites
-  </button>
+    <button class="filter-btn" data-category="healthy-bites">
+      Healthy Bites
+    </button>
 
-  <button
-    class="filter-btn"
-    data-category="non-vegetarian-achaar"
-  >
-    Non-Vegetarian Indian Achaar
-  </button>
-</section>
+    <button class="filter-btn" data-category="non-vegetarian-achaar">
+      Non-Vegetarian Indian Achaar
+    </button>
+  </section>
 
-<section class="products" id="product-list"></section>
+  <section class="products" id="product-list"></section>
 
-<section class="features" id="about">
-  <h2>Why Choose Us</h2>
-  <div class="feature-grid">
-    <div class="feature-card">🍲<h4>Homemade</h4></div>
-    <div class="feature-card">🚫<h4>No Preservatives</h4></div>
-    <div class="feature-card">🇮🇳<h4>Authentic Taste</h4></div>
-    <div class="feature-card">🌿<h4>Fresh Ingredients</h4></div>
+  <section class="features" id="about">
+    <h2>Why Choose Us</h2>
+    <div class="feature-grid">
+      <div class="feature-card">🍲<h4>Homemade</h4>
+      </div>
+      <div class="feature-card">🚫<h4>No Preservatives</h4>
+      </div>
+      <div class="feature-card">🇮🇳<h4>Authentic Taste</h4>
+      </div>
+      <div class="feature-card">🌿<h4>Fresh Ingredients</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>Customer Love</h2>
+    <div class="testimonial">
+      <p>"Best pickle brand I've ever tried. Premium quality!"</p>
+      <span>- Priya S.</span>
+    </div>
+    <div class="testimonial">
+      <p>"Feels like my grandma made it. Authentic and rich."</p>
+      <span>- Rahul K.</span>
+    </div>
+  </section>
+
+  <!-- PRODUCT POPUP MODAL -->
+
+  <div class="modal-overlay" id="modal-overlay">
+
+    <div class="product-modal">
+
+      <button class="close-modal" onclick="closeModal()">
+        ×
+      </button>
+
+      <div class="modal-left">
+        <img id="modal-image" src="" alt="">
+      </div>
+
+      <div class="modal-right">
+
+        <h2 id="modal-title"></h2>
+
+        <p class="modal-subtitle">
+          Handcrafted with authentic Indian spices & love.
+        </p>
+
+        <h3>Select Size</h3>
+
+        <div id="size-options"></div>
+
+        <div class="quantity-section">
+
+          <h3>Quantity</h3>
+
+          <div class="qty-box">
+
+            <button onclick="changeQty(-1)">−</button>
+
+            <span id="qty">1</span>
+
+            <button onclick="changeQty(1)">+</button>
+
+          </div>
+
+        </div>
+
+        <button class="add-cart-btn" onclick="confirmAddToCart()">
+          Add To Cart
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
-</section>
 
-<section class="testimonials">
-  <h2>Customer Love</h2>
-  <div class="testimonial">
-    <p>"Best pickle brand I've ever tried. Premium quality!"</p>
-    <span>- Priya S.</span>
-  </div>
-  <div class="testimonial">
-    <p>"Feels like my grandma made it. Authentic and rich."</p>
-    <span>- Rahul K.</span>
-  </div>
-</section>
+  <div id="footer"></div>
 
-<!-- <footer id="contact">
-  <h3>Pickle & Platter</h3>
-  <p>Zindagi Mein Thoda Achaar Dalo</p>
-  <div class="footer-links">
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">Contact</a>
-  </div>
-</footer> -->
-<div id="footer"></div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

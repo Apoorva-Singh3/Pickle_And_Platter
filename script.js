@@ -421,10 +421,6 @@ const products = [
 
 let selectedProduct = null;
 
-// let selectedSizeIndex = 0;
-
-// let quantity = 1;
-
 let selectedQuantities = {};
 
 const productList = document.getElementById("product-list");
@@ -592,62 +588,6 @@ function closeModal() {
     .classList.remove("show");
 }
 
-function selectSize(index) {
-
-  selectedSizeIndex = index;
-
-  document
-    .querySelectorAll(".size-option")
-    .forEach((el, i) => {
-
-      el.classList.toggle(
-        "active",
-        i === index
-      );
-    });
-}
-
-function changeQty(change) {
-
-  quantity += change;
-
-  if (quantity < 1) {
-    quantity = 1;
-  }
-
-  document.getElementById("qty").innerText =
-    quantity;
-}
-
-// function confirmAddToCart() {
-
-//   const sizeData =
-//     selectedProduct.sizes[selectedSizeIndex];
-
-//   const cartItem = {
-
-//     id: Date.now(),
-
-//     name: selectedProduct.name,
-
-//     image: selectedProduct.image,
-
-//     size: sizeData.size,
-
-//     price: sizeData.price,
-
-//     quantity: quantity
-//   };
-
-//   cart.push(cartItem);
-
-//   updateCartUI();
-
-//   closeModal();
-
-//   // openCart();
-// }
-
 function confirmAddToCart() {
 
   let addedSomething = false;
@@ -810,11 +750,6 @@ function closeCart() {
   document
     .getElementById("cart-overlay")
     .classList.remove("show");
-}
-
-function addToCart() {
-  cartCount++;
-  document.getElementById("cart-count").innerText = cartCount;
 }
 
 document.querySelectorAll(".filter-btn").forEach(btn => {

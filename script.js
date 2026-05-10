@@ -1038,9 +1038,11 @@ function setupCheckoutForm() {
 
     alert("Order placed successfully!");
 
+    cart = [];
+
     localStorage.removeItem("pickleCart");
 
-    cart = [];
+    updateCartUI();
 
     window.location.href = "index.html";
   });

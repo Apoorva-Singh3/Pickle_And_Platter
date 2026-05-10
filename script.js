@@ -38,6 +38,13 @@ function loadHeaderFooter() {
 }
 
 function loadHero() {
+
+  const heroContainer =
+    document.getElementById("hero");
+
+  // STOP if page has no hero section
+  if (!heroContainer) return;
+  
   const page = window.location.pathname.split("/").pop();
 
   let title = "Zindagi Mein Thoda Achaar Dalo";

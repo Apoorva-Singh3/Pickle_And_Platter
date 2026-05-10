@@ -862,44 +862,111 @@ function scrollToShop() {
   document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
 }
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   loadHeaderFooter();
+//   loadHero();
+
+//   // MENU TOGGLE (after header loads)
+//   setTimeout(() => {
+//     const menuToggle = document.querySelector(".menu-toggle");
+//     if (menuToggle) {
+//       menuToggle.addEventListener("click", () => {
+//         document.querySelector(".nav-links").classList.toggle("show");
+//       });
+//     }
+//   }, 100);
+
+//   // PRODUCTS ONLY ON HOME
+//   if (document.getElementById("product-list")) {
+//     const savedCart = localStorage.getItem("pickleCart");
+//     if (savedCart) {
+//       cart = JSON.parse(savedCart);
+//       updateCartUI();
+//     }
+//     renderProducts();
+//   }
+
+//   // FILTERS
+//   document.querySelectorAll(".filter-btn").forEach(btn => {
+//     btn.addEventListener("click", () => {
+//       document.querySelector(".active")?.classList.remove("active");
+//       btn.classList.add("active");
+//       renderProducts(btn.dataset.category);
+//     });
+
+//     renderCheckoutPage();
+
+//     setupCheckoutForm();
+//   });
+
+//   updateCartUI();
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
+
   loadHeaderFooter();
+
   loadHero();
 
-  // MENU TOGGLE (after header loads)
+  // RESTORE CART
+
+  const savedCart = localStorage.getItem("pickleCart");
+
+  if (savedCart) {
+
+    cart = JSON.parse(savedCart);
+  }
+
+  updateCartUI();
+
+  // MENU TOGGLE
+
   setTimeout(() => {
-    const menuToggle = document.querySelector(".menu-toggle");
+
+    const menuToggle =
+      document.querySelector(".menu-toggle");
+
     if (menuToggle) {
+
       menuToggle.addEventListener("click", () => {
-        document.querySelector(".nav-links").classList.toggle("show");
+
+        document
+          .querySelector(".nav-links")
+          .classList.toggle("show");
       });
     }
+
   }, 100);
 
   // PRODUCTS ONLY ON HOME
+
   if (document.getElementById("product-list")) {
-    const savedCart = localStorage.getItem("pickleCart");
-    if (savedCart) {
-      cart = JSON.parse(savedCart);
-      updateCartUI();
-    }
+
     renderProducts();
   }
 
   // FILTERS
+
   document.querySelectorAll(".filter-btn").forEach(btn => {
+
     btn.addEventListener("click", () => {
-      document.querySelector(".active")?.classList.remove("active");
+
+      document
+        .querySelector(".active")
+        ?.classList.remove("active");
+
       btn.classList.add("active");
+
       renderProducts(btn.dataset.category);
     });
-
-    renderCheckoutPage();
-
-    setupCheckoutForm();
   });
 
-  updateCartUI();
+  // CHECKOUT PAGE
+
+  renderCheckoutPage();
+
+  setupCheckoutForm();
+
 });
 
 const currentPage = window.location.pathname.split("/").pop();

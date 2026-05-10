@@ -577,10 +577,80 @@ function closeModal() {
     .classList.remove("show");
 }
 
+// function confirmAddToCart() {
+
+//   selectedOil =
+//   document.querySelector('input[name="oil"]:checked').value;
+
+//   selectedSalt =
+//     document.querySelector('input[name="salt"]:checked').value;
+
+//   let addedSomething = false;
+
+//   selectedProduct.sizes.forEach((s, i) => {
+
+//     const qty = selectedQuantities[i] || 0;
+
+//     if (qty > 0) {
+
+//       addedSomething = true;
+
+//       const existingItem = cart.find(
+//         item =>
+//           item.name === selectedProduct.name &&
+//           item.size === s.size
+//       );
+
+//       if (existingItem) {
+
+//         existingItem.quantity += qty;
+
+//       } else {
+
+//         const cartItem = {
+
+//           id: Date.now() + i,
+
+//           name: selectedProduct.name,
+
+//           image: selectedProduct.image,
+
+//           size: s.size,
+
+//           oil: selectedOil,
+
+//           salt: selectedSalt,
+
+//           price: s.price,
+
+//           quantity: qty
+//         };
+
+//         cart.push(cartItem);
+//       }
+//     }
+//   });
+
+//   if (!addedSomething) {
+
+//     alert("Please select at least 1 item");
+
+//     return;
+//   }
+
+//   saveCart();
+
+//   updateCartUI();
+
+//   closeModal();
+
+//   // openCart();
+// }
+
 function confirmAddToCart() {
 
   selectedOil =
-  document.querySelector('input[name="oil"]:checked').value;
+    document.querySelector('input[name="oil"]:checked').value;
 
   selectedSalt =
     document.querySelector('input[name="salt"]:checked').value;
@@ -595,17 +665,25 @@ function confirmAddToCart() {
 
       addedSomething = true;
 
-      const existingItem = cart.find(
-        item =>
-          item.name === selectedProduct.name &&
-          item.size === s.size
+      // CHECK IF SAME CUSTOMIZATION ALREADY EXISTS
+
+      const existingItem = cart.find(item =>
+
+        item.name === selectedProduct.name &&
+        item.size === s.size &&
+        item.oil === selectedOil &&
+        item.salt === selectedSalt
       );
 
       if (existingItem) {
 
+        // increase quantity
+
         existingItem.quantity += qty;
 
       } else {
+
+        // create new cart item
 
         const cartItem = {
 
@@ -637,8 +715,6 @@ function confirmAddToCart() {
 
     return;
   }
-
-  saveCart();
 
   updateCartUI();
 

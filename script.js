@@ -44,7 +44,7 @@ function loadHero() {
 
   // STOP if page has no hero section
   if (!heroContainer) return;
-  
+
   const page = window.location.pathname.split("/").pop();
 
   let title = "Zindagi Mein Thoda Achaar Dalo";
@@ -659,93 +659,6 @@ function confirmAddToCart() {
 
   // openCart();
 }
-
-// function updateCartUI() {
-
-//   const cartItems =
-//     document.getElementById("cart-items");
-
-//   const cartCountEl =
-//     document.getElementById("cart-count");
-
-//   const cartTotalEl =
-//     document.getElementById("cart-total");
-
-//   cartItems.innerHTML = "";
-
-//   let total = 0;
-
-//   let totalItems = 0;
-
-//   if (cart.length === 0) {
-
-//     cartItems.innerHTML = `
-//       <div class="empty-cart">
-//         Your cart is empty
-//       </div>
-//     `;
-
-//     cartTotalEl.innerText = "₹0";
-
-//     cartCountEl.innerText = "0";
-
-//     return;
-//   }
-
-//   cart.forEach(item => {
-
-//     total += item.price * item.quantity;
-
-//     totalItems += item.quantity;
-
-//     const div = document.createElement("div");
-
-//     div.classList.add("cart-item");
-
-//     div.innerHTML = `
-
-//       <img src="${item.image}" alt="">
-
-//       <div class="cart-item-info">
-
-//         <h4>${item.name}</h4>
-
-//         <p>${item.size}</p>
-
-//         <p>Oil: ${item.oil}</p>
-
-//         <p>Salt: ${item.salt}</p>
-
-//         <div class="cart-item-price">
-//           ₹${item.price * item.quantity}
-//         </div>
-
-//         <div class="cart-qty">
-
-//           <button onclick="changeCartQty(${item.id}, -1)">
-//             −
-//           </button>
-
-//           <span>${item.quantity}</span>
-
-//           <button onclick="changeCartQty(${item.id}, 1)">
-//             +
-//           </button>
-
-//         </div>
-
-//       </div>
-//     `;
-
-//     cartItems.appendChild(div);
-//   });
-
-//   cartTotalEl.innerText = `₹${total}`;
-
-//   cartCountEl.innerText = totalItems;
-
-//   localStorage.setItem("pickleCart", JSON.stringify(cart));
-// }
 
 function updateCartUI() {
 

@@ -396,7 +396,8 @@ const products = [
 
   // Non-Vegetarian Indian Achaar
   {
-    name: "Prawn Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
+    // name: "Prawn Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
+    name: "Prawn Pickle",
     category: "non-vegetarian-achaar",
     // price: 499,
     sizes: [
@@ -407,7 +408,8 @@ const products = [
     image: "images/Prawn Pickle.png"
   },
   {
-    name: "Chicken Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
+    // name: "Chicken Pickle <br><span class='prepaid-note'>(on prepaid orders)</span>",
+    name: "Chicken Pickle",
     category: "non-vegetarian-achaar",
     // price: 449,
     sizes: [
@@ -422,6 +424,10 @@ const products = [
 let selectedProduct = null;
 
 let selectedQuantities = {};
+
+let selectedOil = "Coldpressed mustard oil";
+
+let selectedSalt = "rocksalt(sendhanamak)";
 
 const productList = document.getElementById("product-list");
 
@@ -573,6 +579,12 @@ function closeModal() {
 
 function confirmAddToCart() {
 
+  selectedOil =
+  document.querySelector('input[name="oil"]:checked').value;
+
+  selectedSalt =
+    document.querySelector('input[name="salt"]:checked').value;
+
   let addedSomething = false;
 
   selectedProduct.sizes.forEach((s, i) => {
@@ -604,6 +616,10 @@ function confirmAddToCart() {
           image: selectedProduct.image,
 
           size: s.size,
+
+          oil: selectedOil,
+
+          salt: selectedSalt,
 
           price: s.price,
 
@@ -683,6 +699,10 @@ function updateCartUI() {
 
         <p>${item.size}</p>
 
+        <p>Oil: ${item.oil}</p>
+
+        <p>Salt: ${item.salt}</p>
+
         <div class="cart-item-price">
           ₹${item.price * item.quantity}
         </div>
@@ -710,6 +730,8 @@ function updateCartUI() {
   cartTotalEl.innerText = `₹${total}`;
 
   cartCountEl.innerText = totalItems;
+
+  localStorage.setItem("pickleCart", JSON.stringify(cart));
 }
 
 function changeCartQty(id, change) {
@@ -780,6 +802,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // PRODUCTS ONLY ON HOME
   if (document.getElementById("product-list")) {
+    const savedCart = localStorage.getItem("pickleCart");
+    if (savedCart) {
+      cart = JSON.parse(savedCart);
+      updateCartUI();
+    }
     renderProducts();
   }
 

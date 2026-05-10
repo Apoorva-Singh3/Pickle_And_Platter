@@ -13,7 +13,7 @@ function loadHeaderFooter() {
       </nav>
 
       <div class="nav-right">
-        <div class="cart" onclick="openCart()">🛒 <span id="cart-count">0</span></div>
+        <div class="cart cart-icon" onclick="openCart()">🛒<span id="cart-count">0</span></div>
         <div class="menu-toggle">☰</div>
       </div>
     </header>
@@ -546,34 +546,6 @@ function changeQty(change) {
     quantity;
 }
 
-// function confirmAddToCart() {
-
-//   const sizeData =
-//     selectedProduct.sizes[selectedSizeIndex];
-
-//   const cartItem = {
-
-//     name: selectedProduct.name,
-
-//     image: selectedProduct.image,
-
-//     size: sizeData.size,
-
-//     price: sizeData.price,
-
-//     quantity: quantity
-//   };
-
-//   console.log("Added To Cart:", cartItem);
-
-//   cartCount += quantity;
-
-//   document.getElementById("cart-count").innerText =
-//     cartCount;
-
-//   closeModal();
-// }
-
 function confirmAddToCart() {
 
   const sizeData =
@@ -600,7 +572,7 @@ function confirmAddToCart() {
 
   closeModal();
 
-  openCart();
+  // openCart();
 }
 
 function updateCartUI() {

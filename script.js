@@ -577,76 +577,6 @@ function closeModal() {
     .classList.remove("show");
 }
 
-// function confirmAddToCart() {
-
-//   selectedOil =
-//   document.querySelector('input[name="oil"]:checked').value;
-
-//   selectedSalt =
-//     document.querySelector('input[name="salt"]:checked').value;
-
-//   let addedSomething = false;
-
-//   selectedProduct.sizes.forEach((s, i) => {
-
-//     const qty = selectedQuantities[i] || 0;
-
-//     if (qty > 0) {
-
-//       addedSomething = true;
-
-//       const existingItem = cart.find(
-//         item =>
-//           item.name === selectedProduct.name &&
-//           item.size === s.size
-//       );
-
-//       if (existingItem) {
-
-//         existingItem.quantity += qty;
-
-//       } else {
-
-//         const cartItem = {
-
-//           id: Date.now() + i,
-
-//           name: selectedProduct.name,
-
-//           image: selectedProduct.image,
-
-//           size: s.size,
-
-//           oil: selectedOil,
-
-//           salt: selectedSalt,
-
-//           price: s.price,
-
-//           quantity: qty
-//         };
-
-//         cart.push(cartItem);
-//       }
-//     }
-//   });
-
-//   if (!addedSomething) {
-
-//     alert("Please select at least 1 item");
-
-//     return;
-//   }
-
-//   saveCart();
-
-//   updateCartUI();
-
-//   closeModal();
-
-//   // openCart();
-// }
-
 function confirmAddToCart() {
 
   selectedOil =
@@ -862,46 +792,6 @@ function scrollToShop() {
   document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   loadHeaderFooter();
-//   loadHero();
-
-//   // MENU TOGGLE (after header loads)
-//   setTimeout(() => {
-//     const menuToggle = document.querySelector(".menu-toggle");
-//     if (menuToggle) {
-//       menuToggle.addEventListener("click", () => {
-//         document.querySelector(".nav-links").classList.toggle("show");
-//       });
-//     }
-//   }, 100);
-
-//   // PRODUCTS ONLY ON HOME
-//   if (document.getElementById("product-list")) {
-//     const savedCart = localStorage.getItem("pickleCart");
-//     if (savedCart) {
-//       cart = JSON.parse(savedCart);
-//       updateCartUI();
-//     }
-//     renderProducts();
-//   }
-
-//   // FILTERS
-//   document.querySelectorAll(".filter-btn").forEach(btn => {
-//     btn.addEventListener("click", () => {
-//       document.querySelector(".active")?.classList.remove("active");
-//       btn.classList.add("active");
-//       renderProducts(btn.dataset.category);
-//     });
-
-//     renderCheckoutPage();
-
-//     setupCheckoutForm();
-//   });
-
-//   updateCartUI();
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
 
   loadHeaderFooter();
@@ -990,6 +880,71 @@ function goToCheckout() {
   window.location.href = "checkout.html";
 }
 
+// function renderCheckoutPage() {
+
+//   const checkoutItems =
+//     document.getElementById("checkout-items");
+
+//   const checkoutTotal =
+//     document.getElementById("checkout-total");
+
+//   if (!checkoutItems) return;
+
+//   const savedCart =
+//     localStorage.getItem("pickleCart");
+
+//   if (!savedCart) {
+
+//     checkoutItems.innerHTML = `
+//       <p>Your cart is empty</p>
+//     `;
+
+//     return;
+//   }
+
+//   const checkoutCart = JSON.parse(savedCart);
+
+//   let total = 0;
+
+//   checkoutItems.innerHTML = "";
+
+//   checkoutCart.forEach(item => {
+
+//     total += item.price * item.quantity;
+
+//     const div = document.createElement("div");
+
+//     div.classList.add("checkout-item");
+
+//     div.innerHTML = `
+
+//       <img src="${item.image}" alt="">
+
+//       <div class="checkout-item-info">
+
+//         <h4>${item.name}</h4>
+
+//         <p>Size: ${item.size}</p>
+
+//         <p>Oil: ${item.oil}</p>
+
+//         <p>Salt: ${item.salt}</p>
+
+//         <p>Qty: ${item.quantity}</p>
+
+//         <div class="checkout-price">
+//           ₹${item.price * item.quantity}
+//         </div>
+
+//       </div>
+//     `;
+
+//     checkoutItems.appendChild(div);
+//   });
+
+//   checkoutTotal.innerText = `₹${total}`;
+// }
+
 function renderCheckoutPage() {
 
   const checkoutItems =
@@ -998,27 +953,24 @@ function renderCheckoutPage() {
   const checkoutTotal =
     document.getElementById("checkout-total");
 
-  if (!checkoutItems) return;
+  if (!checkoutItems || !checkoutTotal) return;
 
-  const savedCart =
-    localStorage.getItem("pickleCart");
-
-  if (!savedCart) {
+  if (cart.length === 0) {
 
     checkoutItems.innerHTML = `
       <p>Your cart is empty</p>
     `;
 
+    checkoutTotal.innerText = "₹0";
+
     return;
   }
 
-  const checkoutCart = JSON.parse(savedCart);
+  checkoutItems.innerHTML = "";
 
   let total = 0;
 
-  checkoutItems.innerHTML = "";
-
-  checkoutCart.forEach(item => {
+  cart.forEach(item => {
 
     total += item.price * item.quantity;
 

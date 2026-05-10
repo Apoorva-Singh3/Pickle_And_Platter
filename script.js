@@ -628,7 +628,7 @@ function confirmAddToCart() {
 
   closeModal();
 
-  openCart();
+  // openCart();
 }
 
 function updateCartUI() {

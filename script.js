@@ -421,9 +421,11 @@ const products = [
 
 let selectedProduct = null;
 
-let selectedSizeIndex = 0;
+// let selectedSizeIndex = 0;
 
-let quantity = 1;
+// let quantity = 1;
+
+let selectedQuantities = {};
 
 const productList = document.getElementById("product-list");
 let cartCount = 0;
@@ -474,6 +476,8 @@ function openModal(index) {
 
   quantity = 1;
 
+  selectedQuantities = {};
+
   document.getElementById("qty").innerText = quantity;
 
   document.getElementById("modal-image").src =
@@ -487,25 +491,94 @@ function openModal(index) {
 
   sizeOptions.innerHTML = "";
 
+  // selectedProduct.sizes.forEach((s, i) => {
+
+  //   const div = document.createElement("div");
+
+  //   div.classList.add("size-option");
+
+  //   if (i === 0) {
+  //     div.classList.add("active");
+  //   }
+
+  //   div.innerHTML = `
+  //     <span>${s.size}</span>
+  //     <strong>₹${s.price}</strong>
+  //   `;
+
+  //   div.onclick = () => selectSize(i);
+
+  //   sizeOptions.appendChild(div);
+  // });
+
   selectedProduct.sizes.forEach((s, i) => {
 
     const div = document.createElement("div");
 
     div.classList.add("size-option");
 
-    if (i === 0) {
-      div.classList.add("active");
-    }
-
     div.innerHTML = `
-      <span>${s.size}</span>
-      <strong>₹${s.price}</strong>
-    `;
 
-    div.onclick = () => selectSize(i);
+    <div class="size-left">
+
+      <h4>${s.size}</h4>
+
+      <p>₹${s.price}</p>
+
+    </div>
+
+    <div class="size-qty">
+
+      <button onclick="changeSizeQty(${i}, -1)">
+        −
+      </button>
+
+      <span id="size-qty-${i}">0</span>
+
+      <button onclick="changeSizeQty(${i}, 1)">
+        +
+      </button>
+
+    </div>
+  `;
 
     sizeOptions.appendChild(div);
   });
+
+  function changeSizeQty(index, change) {
+
+    if (!selectedQuantities[index]) {
+      selectedQuantities[index] = 0;
+    }
+
+    selectedQuantities[index] += change;
+
+    if (selectedQuantities[index] < 0) {
+      selectedQuantities[index] = 0;
+    }
+
+    document.getElementById(
+      `size-qty-${index}`
+    ).innerText = selectedQuantities[index];
+
+    updatePopupTotal();
+  }
+
+  function updatePopupTotal() {
+
+    let total = 0;
+
+    selectedProduct.sizes.forEach((s, i) => {
+
+      const qty = selectedQuantities[i] || 0;
+
+      total += qty * s.price;
+    });
+
+    document.getElementById(
+      "popup-total"
+    ).innerText = `₹${total}`;
+  }
 
   document
     .getElementById("modal-overlay")
@@ -546,27 +619,72 @@ function changeQty(change) {
     quantity;
 }
 
+// function confirmAddToCart() {
+
+//   const sizeData =
+//     selectedProduct.sizes[selectedSizeIndex];
+
+//   const cartItem = {
+
+//     id: Date.now(),
+
+//     name: selectedProduct.name,
+
+//     image: selectedProduct.image,
+
+//     size: sizeData.size,
+
+//     price: sizeData.price,
+
+//     quantity: quantity
+//   };
+
+//   cart.push(cartItem);
+
+//   updateCartUI();
+
+//   closeModal();
+
+//   // openCart();
+// }
+
 function confirmAddToCart() {
 
-  const sizeData =
-    selectedProduct.sizes[selectedSizeIndex];
+  let addedSomething = false;
 
-  const cartItem = {
+  selectedProduct.sizes.forEach((s, i) => {
 
-    id: Date.now(),
+    const qty = selectedQuantities[i] || 0;
 
-    name: selectedProduct.name,
+    if (qty > 0) {
 
-    image: selectedProduct.image,
+      addedSomething = true;
 
-    size: sizeData.size,
+      const cartItem = {
 
-    price: sizeData.price,
+        id: Date.now() + i,
 
-    quantity: quantity
-  };
+        name: selectedProduct.name,
 
-  cart.push(cartItem);
+        image: selectedProduct.image,
+
+        size: s.size,
+
+        price: s.price,
+
+        quantity: qty
+      };
+
+      cart.push(cartItem);
+    }
+  });
+
+  if (!addedSomething) {
+
+    alert("Please select at least 1 item");
+
+    return;
+  }
 
   updateCartUI();
 
@@ -592,7 +710,7 @@ function updateCartUI() {
 
   let totalItems = 0;
 
-  if(cart.length === 0){
+  if (cart.length === 0) {
 
     cartItems.innerHTML = `
       <div class="empty-cart">
@@ -660,11 +778,11 @@ function changeCartQty(id, change) {
 
   const item = cart.find(i => i.id === id);
 
-  if(!item) return;
+  if (!item) return;
 
   item.quantity += change;
 
-  if(item.quantity <= 0){
+  if (item.quantity <= 0) {
 
     cart = cart.filter(i => i.id !== id);
   }

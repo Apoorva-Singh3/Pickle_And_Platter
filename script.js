@@ -893,6 +893,10 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("active");
       renderProducts(btn.dataset.category);
     });
+
+    renderCheckoutPage();
+
+    setupCheckoutForm();
   });
 
   updateCartUI();
@@ -907,3 +911,118 @@ document.querySelectorAll(".nav-links a").forEach(link => {
   }
 });
 
+function goToCheckout() {
+
+  if (cart.length === 0) {
+
+    alert("Your cart is empty");
+
+    return;
+  }
+
+  window.location.href = "checkout.html";
+}
+
+function renderCheckoutPage() {
+
+  const checkoutItems =
+    document.getElementById("checkout-items");
+
+  const checkoutTotal =
+    document.getElementById("checkout-total");
+
+  if (!checkoutItems) return;
+
+  const savedCart =
+    localStorage.getItem("pickleCart");
+
+  if (!savedCart) {
+
+    checkoutItems.innerHTML = `
+      <p>Your cart is empty</p>
+    `;
+
+    return;
+  }
+
+  const checkoutCart = JSON.parse(savedCart);
+
+  let total = 0;
+
+  checkoutItems.innerHTML = "";
+
+  checkoutCart.forEach(item => {
+
+    total += item.price * item.quantity;
+
+    const div = document.createElement("div");
+
+    div.classList.add("checkout-item");
+
+    div.innerHTML = `
+
+      <img src="${item.image}" alt="">
+
+      <div class="checkout-item-info">
+
+        <h4>${item.name}</h4>
+
+        <p>Size: ${item.size}</p>
+
+        <p>Oil: ${item.oil}</p>
+
+        <p>Salt: ${item.salt}</p>
+
+        <p>Qty: ${item.quantity}</p>
+
+        <div class="checkout-price">
+          ₹${item.price * item.quantity}
+        </div>
+
+      </div>
+    `;
+
+    checkoutItems.appendChild(div);
+  });
+
+  checkoutTotal.innerText = `₹${total}`;
+}
+
+function setupCheckoutForm() {
+
+  const form =
+    document.getElementById("checkout-form");
+
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    const orderData = {
+
+      customer: {
+        name: document.getElementById("customer-name").value,
+        phone: document.getElementById("customer-phone").value,
+        email: document.getElementById("customer-email").value,
+        address: document.getElementById("customer-address").value,
+        city: document.getElementById("customer-city").value,
+        pincode: document.getElementById("customer-pincode").value
+      },
+
+      items: cart,
+
+      createdAt: new Date().toISOString()
+    };
+
+    console.log("ORDER DATA", orderData);
+
+    alert("Order placed successfully!");
+
+    localStorage.removeItem("pickleCart");
+
+    cart = [];
+
+    window.location.href = "index.html";
+  });
+}

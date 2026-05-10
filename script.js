@@ -752,26 +752,19 @@ function updateCartUI() {
     document.getElementById("cart-total");
 
   let total = 0;
-
   let totalItems = 0;
 
-  // CALCULATE TOTALS FIRST
-
   cart.forEach(item => {
-
     total += item.price * item.quantity;
-
     totalItems += item.quantity;
   });
 
-  // UPDATE HEADER CART COUNT
+  // UPDATE ONLY HEADER COUNT
   if (cartCountEl) {
     cartCountEl.innerText = totalItems;
   }
 
-  // STOP HERE IF CART DRAWER DOESN'T EXIST
-  // (example: checkout page)
-
+  // STOP IF CART DRAWER DOESN'T EXIST
   if (!cartItems || !cartTotalEl) {
     return;
   }
@@ -798,7 +791,6 @@ function updateCartUI() {
     div.classList.add("cart-item");
 
     div.innerHTML = `
-
       <img src="${item.image}" alt="">
 
       <div class="cart-item-info">

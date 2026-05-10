@@ -119,6 +119,48 @@
 
   </div>
 
+  <!-- =========================
+     CART DRAWER
+========================= -->
+
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+  <div class="cart-drawer" id="cart-drawer">
+
+    <div class="cart-header">
+
+      <h2>Your Cart</h2>
+
+      <button onclick="closeCart()">×</button>
+
+    </div>
+
+    <div class="cart-items" id="cart-items">
+
+      <div class="empty-cart">
+        Your cart is empty
+      </div>
+
+    </div>
+
+    <div class="cart-footer">
+
+      <div class="cart-total">
+
+        <span>Total</span>
+
+        <strong id="cart-total">₹0</strong>
+
+      </div>
+
+      <button class="checkout-btn">
+        Proceed To Checkout
+      </button>
+
+    </div>
+
+  </div>
+
   <div id="footer"></div>
 
   <script src="script.js"></script>

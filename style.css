@@ -375,13 +375,17 @@ footer {
 
 .product-modal {
   background: white;
-  width: 900px;
-  max-width: 100%;
+  width: 1000px;
+  max-width: 95%;
+  height: 90vh;
   border-radius: 24px;
   overflow: hidden;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 420px 1fr;
+
   position: relative;
+
   animation: popup 0.3s ease;
 }
 
@@ -415,17 +419,30 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 25px;
+  overflow: hidden;
 }
 
 .modal-left img {
   width: 100%;
-  max-width: 350px;
+  max-width: 320px;
+  max-height: 75vh;
+  object-fit: contain;
   border-radius: 20px;
 }
 
 .modal-right {
-  padding: 40px;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.modal-right::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-right::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 20px;
 }
 
 .modal-right h2 {
@@ -442,18 +459,32 @@ footer {
 #size-options {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .size-option {
-  border: 2px solid #ddd;
-  padding: 15px 18px;
+  border: 2px solid #eee;
   border-radius: 14px;
+  padding: 12px 14px;
+
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.custom-select-group label {
+  border: 2px solid #eee;
+  padding: 10px 12px;
+  border-radius: 12px;
   cursor: pointer;
   transition: 0.3s;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
 }
 
 .size-option.active {
@@ -503,12 +534,21 @@ footer {
 
   .product-modal {
     grid-template-columns: 1fr;
-    max-height: 90vh;
+    height: 95vh;
     overflow-y: auto;
   }
 
+  .modal-left {
+    padding: 20px;
+  }
+
+  .modal-left img {
+    max-width: 220px;
+    max-height: 250px;
+  }
+
   .modal-right {
-    padding: 25px;
+    padding: 20px;
   }
 
   .modal-right h2 {

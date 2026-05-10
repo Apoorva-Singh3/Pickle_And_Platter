@@ -419,326 +419,20 @@ const products = [
   }
 ];
 
-// let selectedProduct = null;
-
-// let selectedQuantities = {};
-
-// const productList = document.getElementById("product-list");
-// let cartCount = 0;
-// let cart = [];
-
-// function renderProducts(filter = "all") {
-
-//   productList.innerHTML = "";
-
-//   const filtered =
-//     filter === "all"
-//       ? products
-//       : products.filter(p => p.category === filter);
-
-//   filtered.forEach((p, index) => {
-
-//     const startingPrice = p.sizes[0].price;
-
-//     const div = document.createElement("div");
-
-//     div.classList.add("product");
-
-//     div.innerHTML = `
-//       <img src="${p.image}" alt="${p.name}">
-
-//       <div class="product-content">
-
-//         <h4>${p.name}</h4>
-
-//         <p>Starting from ₹${startingPrice}</p>
-
-//         <button onclick="openModal(${index})">
-//           Customize
-//         </button>
-
-//       </div>
-//     `;
-
-//     productList.appendChild(div);
-//   });
-// }
-
-// function openModal(index) {
-
-//   selectedProduct = products[index];
-
-//   selectedSizeIndex = 0;
-
-//   quantity = 1;
-
-//   selectedQuantities = {};
-
-//   document.getElementById("qty").innerText = quantity;
-
-//   document.getElementById("modal-image").src =
-//     selectedProduct.image;
-
-//   document.getElementById("modal-title").innerHTML =
-//     selectedProduct.name;
-
-//   const sizeOptions =
-//     document.getElementById("size-options");
-
-//   sizeOptions.innerHTML = "";
-
-//   selectedProduct.sizes.forEach((s, i) => {
-
-//     const div = document.createElement("div");
-
-//     div.classList.add("size-option");
-
-//     div.innerHTML = `
-
-//     <div class="size-left">
-
-//       <h4>${s.size}</h4>
-
-//       <p>₹${s.price}</p>
-
-//     </div>
-
-//     <div class="size-qty">
-
-//       <button onclick="changeSizeQty(${i}, -1)">
-//         −
-//       </button>
-
-//       <span id="size-qty-${i}">0</span>
-
-//       <button onclick="changeSizeQty(${i}, 1)">
-//         +
-//       </button>
-
-//     </div>
-//   `;
-
-//     sizeOptions.appendChild(div);
-//   });
-
-//   function changeSizeQty(index, change) {
-
-//     if (!selectedQuantities[index]) {
-//       selectedQuantities[index] = 0;
-//     }
-
-//     selectedQuantities[index] += change;
-
-//     if (selectedQuantities[index] < 0) {
-//       selectedQuantities[index] = 0;
-//     }
-
-//     document.getElementById(
-//       `size-qty-${index}`
-//     ).innerText = selectedQuantities[index];
-
-//     updatePopupTotal();
-//   }
-
-//   function updatePopupTotal() {
-
-//     let total = 0;
-
-//     selectedProduct.sizes.forEach((s, i) => {
-
-//       const qty = selectedQuantities[i] || 0;
-
-//       total += qty * s.price;
-//     });
-
-//     document.getElementById(
-//       "popup-total"
-//     ).innerText = `₹${total}`;
-//   }
-
-//   document
-//     .getElementById("modal-overlay")
-//     .classList.add("show");
-// }
-
-// function closeModal() {
-
-//   document
-//     .getElementById("modal-overlay")
-//     .classList.remove("show");
-// }
-
-// function confirmAddToCart() {
-
-//   let addedSomething = false;
-
-//   selectedProduct.sizes.forEach((s, i) => {
-
-//     const qty = selectedQuantities[i] || 0;
-
-//     if (qty > 0) {
-
-//       addedSomething = true;
-
-//       const cartItem = {
-
-//         id: Date.now() + i,
-
-//         name: selectedProduct.name,
-
-//         image: selectedProduct.image,
-
-//         size: s.size,
-
-//         price: s.price,
-
-//         quantity: qty
-//       };
-
-//       cart.push(cartItem);
-//     }
-//   });
-
-//   if (!addedSomething) {
-
-//     alert("Please select at least 1 item");
-
-//     return;
-//   }
-
-//   updateCartUI();
-
-//   closeModal();
-
-//   // openCart();
-// }
-
-// function updateCartUI() {
-
-//   const cartItems =
-//     document.getElementById("cart-items");
-
-//   const cartCountEl =
-//     document.getElementById("cart-count");
-
-//   const cartTotalEl =
-//     document.getElementById("cart-total");
-
-//   cartItems.innerHTML = "";
-
-//   let total = 0;
-
-//   let totalItems = 0;
-
-//   if (cart.length === 0) {
-
-//     cartItems.innerHTML = `
-//       <div class="empty-cart">
-//         Your cart is empty
-//       </div>
-//     `;
-
-//     cartTotalEl.innerText = "₹0";
-
-//     cartCountEl.innerText = "0";
-
-//     return;
-//   }
-
-//   cart.forEach(item => {
-
-//     total += item.price * item.quantity;
-
-//     totalItems += item.quantity;
-
-//     const div = document.createElement("div");
-
-//     div.classList.add("cart-item");
-
-//     div.innerHTML = `
-
-//       <img src="${item.image}" alt="">
-
-//       <div class="cart-item-info">
-
-//         <h4>${item.name}</h4>
-
-//         <p>${item.size}</p>
-
-//         <div class="cart-item-price">
-//           ₹${item.price * item.quantity}
-//         </div>
-
-//         <div class="cart-qty">
-
-//           <button onclick="changeCartQty(${item.id}, -1)">
-//             −
-//           </button>
-
-//           <span>${item.quantity}</span>
-
-//           <button onclick="changeCartQty(${item.id}, 1)">
-//             +
-//           </button>
-
-//         </div>
-
-//       </div>
-//     `;
-
-//     cartItems.appendChild(div);
-//   });
-
-//   cartTotalEl.innerText = `₹${total}`;
-
-//   cartCountEl.innerText = totalItems;
-// }
-
-// function changeCartQty(id, change) {
-
-//   const item = cart.find(i => i.id === id);
-
-//   if (!item) return;
-
-//   item.quantity += change;
-
-//   if (item.quantity <= 0) {
-
-//     cart = cart.filter(i => i.id !== id);
-//   }
-
-//   updateCartUI();
-// }
-
-// function openCart() {
-
-//   document
-//     .getElementById("cart-drawer")
-//     .classList.add("show");
-
-//   document
-//     .getElementById("cart-overlay")
-//     .classList.add("show");
-// }
-
-// function closeCart() {
-
-//   document
-//     .getElementById("cart-drawer")
-//     .classList.remove("show");
-
-//   document
-//     .getElementById("cart-overlay")
-//     .classList.remove("show");
-// }
-
 let selectedProduct = null;
 
 let selectedQuantities = {};
 
 const productList = document.getElementById("product-list");
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("pickleCart")) || [];
+
+function saveCart() {
+  localStorage.setItem(
+    "pickleCart",
+    JSON.stringify(cart)
+  );
+}
 
 function renderProducts(filter = "all") {
 
@@ -928,9 +622,13 @@ function confirmAddToCart() {
     return;
   }
 
+  saveCart();
+
   updateCartUI();
 
   closeModal();
+
+
 }
 
 function updateCartUI() {
@@ -1027,6 +725,8 @@ function changeCartQty(id, change) {
     cart = cart.filter(i => i.id !== id);
   }
 
+  saveCart();
+
   updateCartUI();
 }
 
@@ -1091,6 +791,8 @@ document.addEventListener("DOMContentLoaded", () => {
       renderProducts(btn.dataset.category);
     });
   });
+
+  updateCartUI();
 });
 
 const currentPage = window.location.pathname.split("/").pop();

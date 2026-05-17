@@ -868,7 +868,7 @@ function updateCartUI() {
 
       total += item.price * item.quantity;
     }
-});
+  });
   // APPLY SAMPLE OFFERS
 
   let remainingSamples = sampleItems.length;
@@ -890,65 +890,38 @@ function updateCartUI() {
     total += sampleItems[i].price;
   }
 
-  const eligibleSets =
-    Math.floor(sampleQty / offer.quantityRequired);
-
-  if (eligibleSets > 0) {
-
-    // ACTUAL PRICE OF ITEMS IN OFFER
-
-    const actualPrice =
-      eligibleSets *
-      offer.quantityRequired *
-      (sampleActualTotal / sampleQty);
-
-    // OFFER PRICE
-
-    const discountedPrice =
-      eligibleSets * offer.offerPrice;
-
-    // DISCOUNT
-
-    const discount =
-      actualPrice - discountedPrice;
-
-    total -= discount;
+  // UPDATE ONLY HEADER COUNT
+  if (cartCountEl) {
+    cartCountEl.innerText = totalItems;
   }
 
-};
+  // STOP IF CART DRAWER DOESN'T EXIST
+  if (!cartItems || !cartTotalEl) {
+    return;
+  }
 
-// UPDATE ONLY HEADER COUNT
-if (cartCountEl) {
-  cartCountEl.innerText = totalItems;
-}
+  cartItems.innerHTML = "";
 
-// STOP IF CART DRAWER DOESN'T EXIST
-if (!cartItems || !cartTotalEl) {
-  return;
-}
+  if (cart.length === 0) {
 
-cartItems.innerHTML = "";
-
-if (cart.length === 0) {
-
-  cartItems.innerHTML = `
+    cartItems.innerHTML = `
       <div class="empty-cart">
         Your cart is empty
       </div>
     `;
 
-  cartTotalEl.innerText = "₹0";
+    cartTotalEl.innerText = "₹0";
 
-  return;
-}
+    return;
+  }
 
-cart.forEach(item => {
+  cart.forEach(item => {
 
-  const div = document.createElement("div");
+    const div = document.createElement("div");
 
-  div.classList.add("cart-item");
+    div.classList.add("cart-item");
 
-  div.innerHTML = `
+    div.innerHTML = `
       <img src="${item.image}" alt="">
 
       <div class="cart-item-info">
@@ -958,9 +931,9 @@ cart.forEach(item => {
         <p>${item.size}
 
           ${item.size === "50g"
-              ? `<span class="sample-tag">Sample Offer Eligible</span>`
-              : ""
-            }
+        ? `<span class="sample-tag">Sample Offer Eligible</span>`
+        : ""
+      }
         </p>
 
         <p>Oil: ${item.oil}</p>
@@ -988,194 +961,194 @@ cart.forEach(item => {
       </div>
     `;
 
-  cartItems.appendChild(div);
-});
+    cartItems.appendChild(div);
+  });
 
-// cartTotalEl.innerText = `₹${total}`;
-cartTotalEl.innerText =
-  `₹${Math.round(total)}`;
-
-saveCart();
-
-
-function changeCartQty(id, change) {
-
-  const item = cart.find(i => i.id === id);
-
-  if (!item) return;
-
-  item.quantity += change;
-
-  if (item.quantity <= 0) {
-
-    cart = cart.filter(i => i.id !== id);
-  }
+  // cartTotalEl.innerText = `₹${total}`;
+  cartTotalEl.innerText =
+    `₹${Math.round(total)}`;
 
   saveCart();
 
-  updateCartUI();
-}
 
-function openCart() {
+  function changeCartQty(id, change) {
 
-  document
-    .getElementById("cart-drawer")
-    .classList.add("show");
+    const item = cart.find(i => i.id === id);
 
-  document
-    .getElementById("cart-overlay")
-    .classList.add("show");
-}
+    if (!item) return;
 
-function closeCart() {
+    item.quantity += change;
 
-  document
-    .getElementById("cart-drawer")
-    .classList.remove("show");
+    if (item.quantity <= 0) {
 
-  document
-    .getElementById("cart-overlay")
-    .classList.remove("show");
-}
-
-document.querySelectorAll(".filter-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelector(".active").classList.remove("active");
-    btn.classList.add("active");
-    renderProducts(btn.dataset.category);
-  });
-});
-
-function scrollToShop() {
-  document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  loadHeaderFooter();
-
-  loadHero();
-
-  renderOffers();
-
-  // RESTORE CART
-
-  const savedCart = localStorage.getItem("pickleCart");
-
-  if (savedCart) {
-
-    cart = JSON.parse(savedCart);
-  }
-
-  updateCartUI();
-
-  console.log("RESTORED CART:", cart);
-
-  // MENU TOGGLE
-
-  setTimeout(() => {
-
-    const menuToggle =
-      document.querySelector(".menu-toggle");
-
-    if (menuToggle) {
-
-      menuToggle.addEventListener("click", () => {
-
-        document
-          .querySelector(".nav-links")
-          .classList.toggle("show");
-      });
+      cart = cart.filter(i => i.id !== id);
     }
 
-  }, 100);
+    saveCart();
 
-  // PRODUCTS ONLY ON HOME
-
-  if (document.getElementById("product-list")) {
-
-    renderProducts();
+    updateCartUI();
   }
 
-  // FILTERS
+  function openCart() {
+
+    document
+      .getElementById("cart-drawer")
+      .classList.add("show");
+
+    document
+      .getElementById("cart-overlay")
+      .classList.add("show");
+  }
+
+  function closeCart() {
+
+    document
+      .getElementById("cart-drawer")
+      .classList.remove("show");
+
+    document
+      .getElementById("cart-overlay")
+      .classList.remove("show");
+  }
 
   document.querySelectorAll(".filter-btn").forEach(btn => {
-
     btn.addEventListener("click", () => {
-
-      document
-        .querySelector(".active")
-        ?.classList.remove("active");
-
+      document.querySelector(".active").classList.remove("active");
       btn.classList.add("active");
-
       renderProducts(btn.dataset.category);
     });
   });
 
-  // CHECKOUT PAGE
-
-  renderCheckoutPage();
-
-  setupCheckoutForm();
-
-});
-
-const currentPage = window.location.pathname.split("/").pop();
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-  if (link.getAttribute("href") === currentPage) {
-    link.style.color = "#8B1E1E";
-    link.style.fontWeight = "600";
-  }
-});
-
-function goToCheckout() {
-
-  if (cart.length === 0) {
-
-    alert("Your cart is empty");
-
-    return;
+  function scrollToShop() {
+    document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
   }
 
-  window.location.href = "checkout.html";
-}
+  document.addEventListener("DOMContentLoaded", () => {
 
-function renderCheckoutPage() {
+    loadHeaderFooter();
 
-  const checkoutItems =
-    document.getElementById("checkout-items");
+    loadHero();
 
-  const checkoutTotal =
-    document.getElementById("checkout-total");
+    renderOffers();
 
-  if (!checkoutItems || !checkoutTotal) return;
+    // RESTORE CART
 
-  if (cart.length === 0) {
+    const savedCart = localStorage.getItem("pickleCart");
 
-    checkoutItems.innerHTML = `
+    if (savedCart) {
+
+      cart = JSON.parse(savedCart);
+    }
+
+    updateCartUI();
+
+    console.log("RESTORED CART:", cart);
+
+    // MENU TOGGLE
+
+    setTimeout(() => {
+
+      const menuToggle =
+        document.querySelector(".menu-toggle");
+
+      if (menuToggle) {
+
+        menuToggle.addEventListener("click", () => {
+
+          document
+            .querySelector(".nav-links")
+            .classList.toggle("show");
+        });
+      }
+
+    }, 100);
+
+    // PRODUCTS ONLY ON HOME
+
+    if (document.getElementById("product-list")) {
+
+      renderProducts();
+    }
+
+    // FILTERS
+
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+
+      btn.addEventListener("click", () => {
+
+        document
+          .querySelector(".active")
+          ?.classList.remove("active");
+
+        btn.classList.add("active");
+
+        renderProducts(btn.dataset.category);
+      });
+    });
+
+    // CHECKOUT PAGE
+
+    renderCheckoutPage();
+
+    setupCheckoutForm();
+
+  });
+
+  const currentPage = window.location.pathname.split("/").pop();
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.style.color = "#8B1E1E";
+      link.style.fontWeight = "600";
+    }
+  });
+
+  function goToCheckout() {
+
+    if (cart.length === 0) {
+
+      alert("Your cart is empty");
+
+      return;
+    }
+
+    window.location.href = "checkout.html";
+  }
+
+  function renderCheckoutPage() {
+
+    const checkoutItems =
+      document.getElementById("checkout-items");
+
+    const checkoutTotal =
+      document.getElementById("checkout-total");
+
+    if (!checkoutItems || !checkoutTotal) return;
+
+    if (cart.length === 0) {
+
+      checkoutItems.innerHTML = `
       <p>Your cart is empty</p>
     `;
 
-    checkoutTotal.innerText = "₹0";
+      checkoutTotal.innerText = "₹0";
 
-    return;
-  }
+      return;
+    }
 
-  checkoutItems.innerHTML = "";
+    checkoutItems.innerHTML = "";
 
-  let total = 0;
+    let total = 0;
 
-  cart.forEach(item => {
+    cart.forEach(item => {
 
-    total += item.price * item.quantity;
+      total += item.price * item.quantity;
 
-    const div = document.createElement("div");
+      const div = document.createElement("div");
 
-    div.classList.add("checkout-item");
+      div.classList.add("checkout-item");
 
-    div.innerHTML = `
+      div.innerHTML = `
 
       <img src="${item.image}" alt="">
 
@@ -1198,69 +1171,69 @@ function renderCheckoutPage() {
       </div>
     `;
 
-    checkoutItems.appendChild(div);
-  });
+      checkoutItems.appendChild(div);
+    });
 
-  checkoutTotal.innerText = `₹${total}`;
-}
+    checkoutTotal.innerText = `₹${total}`;
+  }
 
-function setupCheckoutForm() {
+  function setupCheckoutForm() {
 
-  const form =
-    document.getElementById("checkout-form");
+    const form =
+      document.getElementById("checkout-form");
 
-  if (!form) return;
+    if (!form) return;
 
-  form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", (e) => {
 
-    e.preventDefault();
+      e.preventDefault();
 
-    const orderData = {
+      const orderData = {
 
-      customer: {
-        name: document.getElementById("customer-name").value,
-        phone: document.getElementById("customer-phone").value,
-        email: document.getElementById("customer-email").value,
-        address: document.getElementById("customer-address").value,
-        city: document.getElementById("customer-city").value,
-        pincode: document.getElementById("customer-pincode").value
-      },
+        customer: {
+          name: document.getElementById("customer-name").value,
+          phone: document.getElementById("customer-phone").value,
+          email: document.getElementById("customer-email").value,
+          address: document.getElementById("customer-address").value,
+          city: document.getElementById("customer-city").value,
+          pincode: document.getElementById("customer-pincode").value
+        },
 
-      items: cart,
+        items: cart,
 
-      createdAt: new Date().toISOString()
-    };
+        createdAt: new Date().toISOString()
+      };
 
-    console.log("ORDER DATA", orderData);
+      console.log("ORDER DATA", orderData);
 
-    alert("Order placed successfully!");
+      alert("Order placed successfully!");
 
-    cart = [];
+      cart = [];
 
-    localStorage.removeItem("pickleCart");
+      localStorage.removeItem("pickleCart");
 
-    updateCartUI();
+      updateCartUI();
 
-    window.location.href = "index.html";
-  });
-}
+      window.location.href = "index.html";
+    });
+  }
 
-function renderOffers() {
+  function renderOffers() {
 
-  const container =
-    document.getElementById("offers-container");
+    const container =
+      document.getElementById("offers-container");
 
-  if (!container) return;
+    if (!container) return;
 
-  container.innerHTML = "";
+    container.innerHTML = "";
 
-  sampleOffers.forEach(offer => {
+    sampleOffers.forEach(offer => {
 
-    const div = document.createElement("div");
+      const div = document.createElement("div");
 
-    div.classList.add("offer-card");
+      div.classList.add("offer-card");
 
-    div.innerHTML = `
+      div.innerHTML = `
 
       <h3>${offer.title}</h3>
 
@@ -1275,7 +1248,8 @@ function renderOffers() {
 
     `;
 
-    container.appendChild(div);
+      container.appendChild(div);
 
-  });
+    });
+  }
 }

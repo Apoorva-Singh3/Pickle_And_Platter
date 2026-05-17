@@ -970,7 +970,7 @@ function updateCartUI() {
 
   saveCart();
 
-
+}
   function changeCartQty(id, change) {
 
     const item = cart.find(i => i.id === id);
@@ -1252,4 +1252,4 @@ function updateCartUI() {
 
     });
   }
-}
+

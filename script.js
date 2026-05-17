@@ -868,7 +868,6 @@ function updateCartUI() {
 
       total += item.price * item.quantity;
     }
-  });
 
   // APPLY SAMPLE OFFERS
 
@@ -916,7 +915,7 @@ function updateCartUI() {
     total -= discount;
   }
 
-};
+});
 
 // UPDATE ONLY HEADER COUNT
 if (cartCountEl) {
@@ -1279,5 +1278,5 @@ function renderOffers() {
     container.appendChild(div);
 
   });
-
+}
 }

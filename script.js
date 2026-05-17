@@ -126,9 +126,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 299,
     sizes: [
-      { size: "100g", price: 150 },
-      { size: "250g", price: 360 },
-      { size: "500g", price: 600 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
     ],
     image: "images/Meetha Aam Achaar 1.png"
   },
@@ -137,9 +137,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 329,
     sizes: [
-      { size: "100g", price: 180 },
-      { size: "250g", price: 450 },
-      { size: "500g", price: 750 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
     ],
     image: "images/Kairi Lahsun Achaar.png"
   },
@@ -148,9 +148,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 349,
     sizes: [
-      { size: "100g", price: 150 },
-      { size: "250g", price: 360 },
-      { size: "500g", price: 600 }
+      { size: "100g", price: 170 },
+      { size: "250g", price: 390 },
+      { size: "500g", price: 700 }
     ],
     image: "images/Aam Gur Achaar.png"
   },
@@ -159,9 +159,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "100g", price: 120 },
-      { size: "250g", price: 300 },
-      { size: "500g", price: 500 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
     ],
     image: "images/Chunda (mango).png"
   },
@@ -170,9 +170,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 339,
     sizes: [
-      { size: "100g", price: 120 },
-      { size: "250g", price: 300 },
-      { size: "500g", price: 500 }
+      { size: "100g", price: 150 },
+      { size: "250g", price: 350 },
+      { size: "500g", price: 620 }
     ],
     image: "images/Kaccha Aam Mustard Pickle.png"
   },
@@ -182,7 +182,7 @@ const products = [
     // price: 289,
     sizes: [
       { size: "100g", price: 180 },
-      { size: "250g", price: 450 },
+      { size: "250g", price: 420 },
       { size: "500g", price: 750 }
     ],
     image: "images/Amla Achaar.png"
@@ -192,9 +192,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 279,
     sizes: [
-      { size: "100g", price: 120 },
-      { size: "250g", price: 300 },
-      { size: "500g", price: 500 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
     ],
     image: "images/Lemon Achaar.png"
   },
@@ -203,9 +203,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 299,
     sizes: [
-      { size: "100g", price: 150 },
-      { size: "250g", price: 360 },
-      { size: "500g", price: 600 }
+      { size: "100g", price: 170 },
+      { size: "250g", price: 390 },
+      { size: "500g", price: 700 }
     ],
     image: "images/Sweet Lemon Pickle.png"
   },
@@ -214,9 +214,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 309,
     sizes: [
-      { size: "100g", price: 150 },
-      { size: "250g", price: 360 },
-      { size: "500g", price: 600 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
     ],
     image: "images/Lime Chilli Pickle.png"
   },
@@ -225,9 +225,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 359,
     sizes: [
-      { size: "100g", price: 180 },
-      { size: "250g", price: 450 },
-      { size: "500g", price: 750 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 380 },
+      { size: "500g", price: 680 }
     ],
     image: "images/Jackfruit Pickle (Kathal).png"
   },
@@ -236,9 +236,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 329,
     sizes: [
-      { size: "100g", price: 150 },
-      { size: "250g", price: 360 },
-      { size: "500g", price: 600 }
+      { size: "100g", price: 180 },
+      { size: "250g", price: 420 },
+      { size: "500g", price: 760 }
     ],
     image: "images/Karonda Pickle.png"
   },
@@ -247,9 +247,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 299,
     sizes: [
-      { size: "100g", price: 120 },
-      { size: "250g", price: 300 },
-      { size: "500g", price: 500 }
+      { size: "100g", price: 170 },
+      { size: "250g", price: 390 },
+      { size: "500g", price: 700 }
     ],
     image: "images/Tamarind Pickle.png"
   },
@@ -258,9 +258,9 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "100g", price: 150 },
-      { size: "250g", price: 360 },
-      { size: "500g", price: 600 }
+      { size: "100g", price: 170 },
+      { size: "250g", price: 390 },
+      { size: "500g", price: 700 }
     ],
     image: "images/Sweet Tamarind Achaar.png"
   },
@@ -392,9 +392,9 @@ const products = [
     category: "indian-chutneys",
     // price: 199,
     sizes: [
-      { size: "100g", price: 120 },
-      { size: "250g", price: 300 },
-      { size: "500g", price: 500 }
+      { size: "100g", price: 150 },
+      { size: "250g", price: 340 },
+      { size: "500g", price: 600 }
     ],
     image: "images/Green chilli lehsun chutney.png"
   },
@@ -403,9 +403,9 @@ const products = [
     category: "indian-chutneys",
     // price: 219,
     sizes: [
-      { size: "100g", price: 150 },
-      { size: "250g", price: 360 },
-      { size: "500g", price: 600 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
     ],
     image: "images/Sweet lemon chutney.png"
   },
@@ -414,9 +414,9 @@ const products = [
     category: "indian-chutneys",
     // price: 229,
     sizes: [
-      { size: "100g", price: 120 },
-      { size: "250g", price: 300 },
-      { size: "500g", price: 500 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
     ],
     image: "images/Mango chutney.png"
   },
@@ -425,9 +425,9 @@ const products = [
     category: "indian-chutneys",
     // price: 239,
     sizes: [
-      { size: "100g", price: 150 },
-      { size: "250g", price: 360 },
-      { size: "500g", price: 600 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
     ],
     image: "images/Jimikanda chutney.png"
   },
@@ -436,9 +436,9 @@ const products = [
     category: "indian-chutneys",
     // price: 199,
     sizes: [
-      { size: "100g", price: 120 },
-      { size: "250g", price: 300 },
-      { size: "500g", price: 500 }
+      { size: "100g", price: 150 },
+      { size: "250g", price: 340 },
+      { size: "500g", price: 600 }
     ],
     image: "images/Tomato chutney.png"
   },
@@ -447,9 +447,9 @@ const products = [
     category: "indian-chutneys",
     // price: 249,
     sizes: [
-      { size: "100g", price: 180 },
-      { size: "250g", price: 450 },
-      { size: "500g", price: 750 }
+      { size: "100g", price: 150 },
+      { size: "250g", price: 340 },
+      { size: "500g", price: 600 }
     ],
     image: "images/Red chilli chutney(dry thecha).png"
   },
@@ -458,9 +458,9 @@ const products = [
     category: "indian-chutneys",
     // price: 229,
     sizes: [
-      { size: "100g", price: 150 },
-      { size: "250g", price: 360 },
-      { size: "500g", price: 600 }
+      { size: "100g", price: 170 },
+      { size: "250g", price: 390 },
+      { size: "500g", price: 700 }
     ],
     image: "images/Sweet amla chutney.png"
   },
@@ -471,9 +471,9 @@ const products = [
     category: "healthy-bites",
     // price: 249,
     sizes: [
-      { size: "100g", price: 240 },
-      { size: "250g", price: 600 },
-      { size: "500g", price: 1000 }
+      { size: "100g", price: 150 },
+      { size: "250g", price: 350 },
+      { size: "500g", price: 600 }
     ],
     image: "images/Amla laddu.png"
   },
@@ -482,9 +482,9 @@ const products = [
     category: "healthy-bites",
     // price: 219,
     sizes: [
-      { size: "100g", price: 180 },
-      { size: "250g", price: 450 },
-      { size: "500g", price: 750 }
+      { size: "100g", price: 150 },
+      { size: "250g", price: 350 },
+      { size: "500g", price: 600 }
     ],
     image: "images/Sukha amla bites.png"
   },
@@ -493,9 +493,9 @@ const products = [
     category: "healthy-bites",
     // price: 299,
     sizes: [
-      { size: "100g", price: 240 },
-      { size: "250g", price: 600 },
-      { size: "500g", price: 1000 }
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
     ],
     image: "images/Seed laddu(pumpkin,chia,flax sunflower seeds).png"
   },
@@ -504,9 +504,9 @@ const products = [
     category: "healthy-bites",
     // price: 349,
     sizes: [
-      { size: "100g", price: 450 },
-      { size: "250g", price: 1050 },
-      { size: "500g", price: 1800 }
+      { size: "100g", price: 280 },
+      { size: "250g", price: 640 },
+      { size: "500g", price: 1080 }
     ],
     image: "images/Dry fruits laddu.png"
   },
@@ -515,9 +515,9 @@ const products = [
     category: "healthy-bites",
     // price: 189,
     sizes: [
-      { size: "100g", price: 120 },
-      { size: "250g", price: 300 },
-      { size: "500g", price: 500 }
+      { size: "100g", price: 150 },
+      { size: "250g", price: 350 },
+      { size: "500g", price: 600 }
     ],
     image: "images/Spiced turmeric powder(buknu).png"
   },
@@ -529,9 +529,9 @@ const products = [
     category: "non-vegetarian-achaar",
     // price: 499,
     sizes: [
-      { size: "100g", price: 450 },
-      { size: "250g", price: 1050 },
-      { size: "500g", price: 1800 }
+      { size: "100g", price: 280 },
+      { size: "250g", price: 640 },
+      { size: "500g", price: 1080 }
     ],
     image: "images/Prawn Pickle.png"
   },
@@ -541,9 +541,9 @@ const products = [
     category: "non-vegetarian-achaar",
     // price: 449,
     sizes: [
-      { size: "100g", price: 360 },
-      { size: "250g", price: 900 },
-      { size: "500g", price: 1500 }
+      { size: "100g", price: 260 },
+      { size: "250g", price: 590 },
+      { size: "500g", price: 1000 }
     ],
     image: "images/Chicken Pickle.png"
   }

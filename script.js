@@ -264,6 +264,127 @@ const products = [
     ],
     image: "images/Sweet Tamarind Achaar.png"
   },
+  {
+    name: "Aloo-Semi Pickle",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 150 },
+      { size: "250g", price: 350 },
+      { size: "500g", price: 620 }
+    ],
+    image: "images/Aloo-Semi Pickle.png"
+  },
+  {
+    name: "Semi Pickle",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 150 },
+      { size: "250g", price: 350 },
+      { size: "500g", price: 620 }
+    ],
+    image: "images/Semi Pickle.png"
+  },
+{
+    name: "Sooran (Jimikand Achaar)",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 170 },
+      { size: "250g", price: 390 },
+      { size: "500g", price: 700 }
+    ],
+    image: "images/Sooran (Jimikand Achaar).png"
+  },
+{
+    name: "Chanabhaji Pickle (Seasonal)",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 170 },
+      { size: "250g", price: 390 },
+      { size: "500g", price: 700 }
+    ],
+    image: "images/Chanabhaji Pickle (Seasonal).png"
+  },
+{
+    name: "Green Chana Achaar (Seasonal)",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 170 },
+      { size: "250g", price: 390 },
+      { size: "500g", price: 700 }
+    ],
+    image: "images/Green Chana Achaar (Seasonal).png"
+  },
+{
+    name: "Green Chilli Achaar",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 150 },
+      { size: "250g", price: 340 },
+      { size: "500g", price: 600 }
+    ],
+    image: "images/Green Chilli Achaar.png"
+  },
+{
+    name: "Bharwa Red Mirchi Pickle",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 180 },
+      { size: "250g", price: 420 },
+      { size: "500g", price: 760 }
+    ],
+    image: "images/Bharwa Red Mirchi Pickle.png"
+  },
+{
+    name: "Hari Mirch Lahsun Achaar",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
+    ],
+    image: "images/Hari Mirch Lahsun Achaar.png"
+  },
+{
+    name: "Mixed Vegetable Achaar",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
+    ],
+    image: "images/Mixed Vegetable Achaar.png"
+  },
+{
+    name: "Onion Pickle",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 150 },
+      { size: "250g", price: 340 },
+      { size: "500g", price: 600 }
+    ],
+    image: "images/Onion Pickle.png"
+  },
+{
+    name: "Raw Turmeric Achaar",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+      { size: "100g", price: 180 },
+      { size: "250g", price: 420 },
+      { size: "500g", price: 760 }
+    ],
+    image: "images/Raw Turmeric Achaar.png"
+  },
 
   // Indian Chutneys
   {

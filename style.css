@@ -960,3 +960,48 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================
+   OFFERS
+========================= */
+
+.offers-section {
+  padding: 20px 40px;
+}
+
+.offers-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #8B1E1E;
+  font-family: 'Playfair Display', serif;
+}
+
+#offers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.offer-card {
+  background: linear-gradient(135deg, #8B1E1E, #c0392b);
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.offer-card h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.offer-card p {
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.offer-price {
+  margin-top: 15px;
+  font-size: 28px;
+  font-weight: bold;
+}

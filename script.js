@@ -126,7 +126,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 299,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -138,7 +138,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 329,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -150,7 +150,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 349,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 170 },
       { size: "250g", price: 390 },
       { size: "500g", price: 700 }
@@ -162,7 +162,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -174,7 +174,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 339,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 150 },
       { size: "250g", price: 350 },
       { size: "500g", price: 620 }
@@ -186,7 +186,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 289,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 180 },
       { size: "250g", price: 420 },
       { size: "500g", price: 750 }
@@ -198,7 +198,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 279,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -210,7 +210,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 299,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 170 },
       { size: "250g", price: 390 },
       { size: "500g", price: 700 }
@@ -222,7 +222,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 309,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -234,7 +234,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 359,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 380 },
       { size: "500g", price: 680 }
@@ -246,7 +246,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 329,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 180 },
       { size: "250g", price: 420 },
       { size: "500g", price: 760 }
@@ -258,7 +258,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 299,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 170 },
       { size: "250g", price: 390 },
       { size: "500g", price: 700 }
@@ -270,7 +270,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 170 },
       { size: "250g", price: 390 },
       { size: "500g", price: 700 }
@@ -282,7 +282,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 150 },
       { size: "250g", price: 350 },
       { size: "500g", price: 620 }
@@ -294,7 +294,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 150 },
       { size: "250g", price: 350 },
       { size: "500g", price: 620 }
@@ -306,7 +306,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 170 },
       { size: "250g", price: 390 },
       { size: "500g", price: 700 }
@@ -318,7 +318,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 170 },
       { size: "250g", price: 390 },
       { size: "500g", price: 700 }
@@ -330,7 +330,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 170 },
       { size: "250g", price: 390 },
       { size: "500g", price: 700 }
@@ -342,7 +342,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 150 },
       { size: "250g", price: 340 },
       { size: "500g", price: 600 }
@@ -354,7 +354,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 180 },
       { size: "250g", price: 420 },
       { size: "500g", price: 760 }
@@ -366,7 +366,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -378,7 +378,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -390,7 +390,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 150 },
       { size: "250g", price: 340 },
       { size: "500g", price: 600 }
@@ -402,7 +402,7 @@ const products = [
     category: "fruit-based-indian-achaar",
     // price: 319,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 180 },
       { size: "250g", price: 420 },
       { size: "500g", price: 760 }
@@ -416,7 +416,7 @@ const products = [
     category: "indian-chutneys",
     // price: 199,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 150 },
       { size: "250g", price: 340 },
       { size: "500g", price: 600 }
@@ -428,7 +428,7 @@ const products = [
     category: "indian-chutneys",
     // price: 219,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -440,7 +440,7 @@ const products = [
     category: "indian-chutneys",
     // price: 229,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -452,7 +452,7 @@ const products = [
     category: "indian-chutneys",
     // price: 239,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 160 },
       { size: "250g", price: 370 },
       { size: "500g", price: 660 }
@@ -464,7 +464,7 @@ const products = [
     category: "indian-chutneys",
     // price: 199,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 150 },
       { size: "250g", price: 340 },
       { size: "500g", price: 600 }
@@ -476,7 +476,7 @@ const products = [
     category: "indian-chutneys",
     // price: 249,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 150 },
       { size: "250g", price: 340 },
       { size: "500g", price: 600 }
@@ -488,7 +488,7 @@ const products = [
     category: "indian-chutneys",
     // price: 229,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 170 },
       { size: "250g", price: 390 },
       { size: "500g", price: 700 }
@@ -560,7 +560,7 @@ const products = [
     category: "non-vegetarian-achaar",
     // price: 499,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 280 },
       { size: "250g", price: 640 },
       { size: "500g", price: 1080 }
@@ -573,7 +573,7 @@ const products = [
     category: "non-vegetarian-achaar",
     // price: 449,
     sizes: [
-      { size: "50g", price: 99 },
+      { size: "50g", price: 99, isSample: true },
       { size: "100g", price: 260 },
       { size: "250g", price: 590 },
       { size: "500g", price: 1000 }
@@ -587,23 +587,14 @@ const products = [
 // =========================
 
 const sampleOffers = [
-
   {
-    id: "sample-3",
-    title: "Any 3 Samples (50g each)",
-    size: "50g",
-    quantityRequired: 3,
-    offerPrice: 299
+    qty: 5,
+    price: 499
   },
-
   {
-    id: "sample-5",
-    title: "Any 5 Samples (50g each)",
-    size: "50g",
-    quantityRequired: 5,
-    offerPrice: 499
+    qty: 3,
+    price: 299
   }
-
 ];
 
 let selectedProduct = null;
@@ -860,104 +851,118 @@ function updateCartUI() {
   let total = 0;
   let totalItems = 0;
 
-  // NORMAL TOTAL
+  let sampleItems = [];
 
   cart.forEach(item => {
 
-    total += item.price * item.quantity;
-
     totalItems += item.quantity;
 
+    // COLLECT SAMPLE JARS
+    if (item.size === "50g") {
+
+      for (let i = 0; i < item.quantity; i++) {
+        sampleItems.push(item);
+      }
+
+    } else {
+
+      total += item.price * item.quantity;
+    }
   });
 
-  // =========================
   // APPLY SAMPLE OFFERS
-  // =========================
+
+  let remainingSamples = sampleItems.length;
 
   sampleOffers.forEach(offer => {
 
-    let sampleQty = 0;
+    while (remainingSamples >= offer.qty) {
 
-    let sampleActualTotal = 0;
+      total += offer.price;
 
-    cart.forEach(item => {
-
-      if (item.size === offer.size) {
-
-        sampleQty += item.quantity;
-
-        sampleActualTotal +=
-          item.price * item.quantity;
-      }
-
-    });
-
-    const eligibleSets =
-      Math.floor(sampleQty / offer.quantityRequired);
-
-    if (eligibleSets > 0) {
-
-      // ACTUAL PRICE OF ITEMS IN OFFER
-
-      const actualPrice =
-        eligibleSets *
-        offer.quantityRequired *
-        (sampleActualTotal / sampleQty);
-
-      // OFFER PRICE
-
-      const discountedPrice =
-        eligibleSets * offer.offerPrice;
-
-      // DISCOUNT
-
-      const discount =
-        actualPrice - discountedPrice;
-
-      total -= discount;
+      remainingSamples -= offer.qty;
     }
-
   });
 
-  // UPDATE ONLY HEADER COUNT
-  if (cartCountEl) {
-    cartCountEl.innerText = totalItems;
+  // REMAINING SAMPLE ITEMS AT NORMAL PRICE
+
+  for (let i = 0; i < remainingSamples; i++) {
+
+    total += sampleItems[i].price;
   }
 
-  // STOP IF CART DRAWER DOESN'T EXIST
-  if (!cartItems || !cartTotalEl) {
-    return;
+  const eligibleSets =
+    Math.floor(sampleQty / offer.quantityRequired);
+
+  if (eligibleSets > 0) {
+
+    // ACTUAL PRICE OF ITEMS IN OFFER
+
+    const actualPrice =
+      eligibleSets *
+      offer.quantityRequired *
+      (sampleActualTotal / sampleQty);
+
+    // OFFER PRICE
+
+    const discountedPrice =
+      eligibleSets * offer.offerPrice;
+
+    // DISCOUNT
+
+    const discount =
+      actualPrice - discountedPrice;
+
+    total -= discount;
   }
 
-  cartItems.innerHTML = "";
+};
 
-  if (cart.length === 0) {
+// UPDATE ONLY HEADER COUNT
+if (cartCountEl) {
+  cartCountEl.innerText = totalItems;
+}
 
-    cartItems.innerHTML = `
+// STOP IF CART DRAWER DOESN'T EXIST
+if (!cartItems || !cartTotalEl) {
+  return;
+}
+
+cartItems.innerHTML = "";
+
+if (cart.length === 0) {
+
+  cartItems.innerHTML = `
       <div class="empty-cart">
         Your cart is empty
       </div>
     `;
 
-    cartTotalEl.innerText = "₹0";
+  cartTotalEl.innerText = "₹0";
 
-    return;
-  }
+  return;
+}
 
-  cart.forEach(item => {
+cart.forEach(item => {
 
-    const div = document.createElement("div");
+  const div = document.createElement("div");
 
-    div.classList.add("cart-item");
+  div.classList.add("cart-item");
 
-    div.innerHTML = `
+  div.innerHTML = `
       <img src="${item.image}" alt="">
 
       <div class="cart-item-info">
 
         <h4>${item.name}</h4>
 
-        <p>${item.size}</p>
+        <p>${item.size}
+
+          ${item.size === "50g"
+              ? `<span class="sample-tag">Sample Offer Eligible</span>`
+              : ""
+            }
+        </p>
 
         <p>Oil: ${item.oil}</p>
 
@@ -984,15 +989,15 @@ function updateCartUI() {
       </div>
     `;
 
-    cartItems.appendChild(div);
-  });
+  cartItems.appendChild(div);
+});
 
-  // cartTotalEl.innerText = `₹${total}`;
-  cartTotalEl.innerText =
+// cartTotalEl.innerText = `₹${total}`;
+cartTotalEl.innerText =
   `₹${Math.round(total)}`;
 
-  saveCart();
-}
+saveCart();
+
 
 function changeCartQty(id, change) {
 

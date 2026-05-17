@@ -582,21 +582,6 @@ const products = [
   }
 ];
 
-const sampleOffers = [
-  {
-    id: "sample-3",
-    title: "3 Sample Jars",
-    quantity: 3,
-    price: 299
-  },
-  {
-    id: "sample-5",
-    title: "5 Sample Jars",
-    quantity: 5,
-    price: 499
-  }
-];
-
 let selectedProduct = null;
 
 let selectedQuantities = {};

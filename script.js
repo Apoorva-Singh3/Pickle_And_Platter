@@ -868,7 +868,7 @@ function updateCartUI() {
 
       total += item.price * item.quantity;
     }
-
+});
   // APPLY SAMPLE OFFERS
 
   let remainingSamples = sampleItems.length;

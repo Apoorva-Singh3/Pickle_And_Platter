@@ -1143,14 +1143,14 @@ function renderCheckoutPage() {
               value="Rock Salt (Sendha Namak)"
               ${item.salt === "Rock Salt (Sendha Namak)" ? "selected" : ""}
             >
-              Rock Salt
+              Rock Salt (Sendha Namak)
             </option>
 
             <option
               value="Black Salt (Kala Namak)"
               ${item.salt === "Black Salt (Kala Namak)" ? "selected" : ""}
             >
-              Black Salt
+              Black Salt (Kala Namak)
             </option>
 
             <option

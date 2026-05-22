@@ -772,7 +772,7 @@ function confirmAddToCart() {
 
           oil: "Coldpressed Mustard Oil",
 
-          salt: "Rock Salt",
+          salt: "Rock Salt (Sendha Namak)",
 
           price: s.price,
 
@@ -1102,10 +1102,7 @@ function renderCheckoutPage() {
           <select
             onchange="updateCheckoutOil(${item.id}, this.value)"
           >
-            <option value="">
-              Select Oil
-            </option>
-
+            
             <option
               value="Coldpressed Mustard Oil"
               ${item.oil === "Coldpressed Mustard Oil" ? "selected" : ""}
@@ -1141,20 +1138,16 @@ function renderCheckoutPage() {
           <select
             onchange="updateCheckoutSalt(${item.id}, this.value)"
           >
-
-            <option value="">
-              Select Salt
-            </option>
-
+            
             <option
-              value="Rock Salt"
+              value="Rock Salt (Sendha Namak)"
               ${item.salt === "Rock Salt (Sendha Namak)" ? "selected" : ""}
             >
               Rock Salt
             </option>
 
             <option
-              value="Black Salt"
+              value="Black Salt (Kala Namak)"
               ${item.salt === "Black Salt (Kala Namak)" ? "selected" : ""}
             >
               Black Salt
@@ -1557,7 +1550,7 @@ function addSampleBoxToCart() {
 
     oil: "Coldpressed Mustard Oil",
 
-    salt: "Rock Salt",
+    salt: "Rock Salt (Sendha Namak)",
 
     price: sampleBoxPrice,
 

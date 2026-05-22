@@ -1191,30 +1191,215 @@ function renderOffers() {
   });
 }
 
-function openSampleBox(quantity, price) {
+// function openSampleBox(quantity, price) {
 
-  const sampleItem = {
+//   const sampleItem = {
+
+//     id: Date.now(),
+
+//     name: `${quantity} Sample Jars Box`,
+
+//     image: "images/Pickle_&_Platter_Logo.jpeg",
+
+//     size: "50g Sample Combo",
+
+//     oil: "Custom",
+
+//     salt: "Custom",
+
+//     price: price,
+
+//     quantity: 1
+//   };
+
+//   cart.push(sampleItem);
+
+//   updateCartUI();
+
+//   alert(`${quantity} Sample Jar Box added to cart`);
+// }
+
+let sampleBoxQty = 0;
+
+let sampleBoxPrice = 0;
+
+let selectedSampleProducts = [];
+
+function openSampleBox(qty, price) {
+
+  sampleBoxQty = qty;
+
+  sampleBoxPrice = price;
+
+  selectedSampleProducts = [];
+
+  document
+    .getElementById("sample-modal-overlay")
+    .classList.add("show");
+
+  document.getElementById(
+    "sample-modal-title"
+  ).innerText =
+    `Create Your ${qty} Jar Sample Box`;
+
+  renderSampleProducts();
+
+  updateSamplePreview();
+}
+
+function closeSampleModal() {
+
+  document
+    .getElementById("sample-modal-overlay")
+    .classList.remove("show");
+}
+
+function renderSampleProducts() {
+
+  const container =
+    document.getElementById("sample-products-list");
+
+  container.innerHTML = "";
+
+  products.forEach(product => {
+
+    const div = document.createElement("div");
+
+    div.classList.add("sample-product-card");
+
+    div.onclick = () =>
+      toggleSampleProduct(product, div);
+
+    div.innerHTML = `
+      <img src="${product.image}" alt="">
+
+      <h4>${product.name}</h4>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+function toggleSampleProduct(product, element) {
+
+  const exists =
+    selectedSampleProducts.find(
+      p => p.name === product.name
+    );
+
+  if (exists) {
+
+    selectedSampleProducts =
+      selectedSampleProducts.filter(
+        p => p.name !== product.name
+      );
+
+    element.classList.remove("active");
+
+  } else {
+
+    if (
+      selectedSampleProducts.length >= sampleBoxQty
+    ) {
+
+      alert(
+        `You can only select ${sampleBoxQty} flavours`
+      );
+
+      return;
+    }
+
+    selectedSampleProducts.push(product);
+
+    element.classList.add("active");
+  }
+
+  updateSamplePreview();
+}
+
+function updateSamplePreview() {
+
+  const preview =
+    document.getElementById(
+      "selected-sample-preview"
+    );
+
+  preview.innerHTML = "";
+
+  selectedSampleProducts.forEach(product => {
+
+    const div = document.createElement("div");
+
+    div.classList.add("preview-jar");
+
+    div.innerHTML = `
+      <img src="${product.image}" alt="">
+      <p>${product.name}</p>
+    `;
+
+    preview.appendChild(div);
+  });
+
+  document.getElementById(
+    "sample-selection-count"
+  ).innerText =
+    `${selectedSampleProducts.length} / ${sampleBoxQty} Selected`;
+}
+
+function addSampleBoxToCart() {
+
+  if (
+    selectedSampleProducts.length !== sampleBoxQty
+  ) {
+
+    alert(
+      `Please select exactly ${sampleBoxQty} flavours`
+    );
+
+    return;
+  }
+
+  const selectedOil =
+    document.querySelector(
+      'input[name="sample-oil"]:checked'
+    ).value;
+
+  const selectedSalt =
+    document.querySelector(
+      'input[name="sample-salt"]:checked'
+    ).value;
+
+  const cartItem = {
 
     id: Date.now(),
 
-    name: `${quantity} Sample Jars Box`,
+    name:
+      `${sampleBoxQty} Sample Jars Box`,
 
-    image: "images/Pickle_&_Platter_Logo.jpeg",
+    image:
+      selectedSampleProducts[0].image,
 
     size: "50g Sample Combo",
 
-    oil: "Custom",
+    oil: selectedOil,
 
-    salt: "Custom",
+    salt: selectedSalt,
 
-    price: price,
+    price: sampleBoxPrice,
 
-    quantity: 1
+    quantity: 1,
+
+    flavours:
+      selectedSampleProducts.map(
+        p => p.name
+      )
   };
 
-  cart.push(sampleItem);
+  cart.push(cartItem);
 
   updateCartUI();
 
-  alert(`${quantity} Sample Jar Box added to cart`);
+  closeSampleModal();
+
+  alert("Sample box added to cart");
 }

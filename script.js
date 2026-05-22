@@ -770,9 +770,9 @@ function confirmAddToCart() {
 
           size: s.size,
 
-          oil: "",
+          oil: "Coldpressed Mustard Oil",
 
-          salt: "",
+          salt: "Rock Salt",
 
           price: s.price,
 
@@ -1090,6 +1090,8 @@ function renderCheckoutPage() {
     ${item.name.toLowerCase().includes("pickle")
         ||
         item.name.toLowerCase().includes("achaar")
+        ||
+        item.name.toLowerCase().includes("sample")
 
         ? `
 
@@ -1552,6 +1554,10 @@ function addSampleBoxToCart() {
       selectedSampleProducts[0].image,
 
     size: "50g Sample Combo",
+
+    oil: "Coldpressed Mustard Oil",
+
+    salt: "Rock Salt",
 
     price: sampleBoxPrice,
 

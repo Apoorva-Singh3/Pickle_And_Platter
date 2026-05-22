@@ -18,20 +18,23 @@
 
   <div id="hero"></div>
 
-  <!-- <section class="sample-offers-section">
+  <!-- SAMPLE OFFERS SECTION -->
+
+  <section class="sample-offers-section">
 
     <div class="section-heading">
       <h2>Try Our Sample Collection</h2>
+
       <p>
         Explore our handcrafted flavours with sample jars.
       </p>
     </div>
 
-    <div class="sample-offers-container"> -->
+    <div class="sample-offers-container">
 
-      <!-- 3 JAR OFFER -->
+      <!-- 3 JAR -->
 
-      <!-- <div class="sample-offer-card">
+      <div class="sample-offer-card">
 
         <h3>3 Sample Jars</h3>
 
@@ -47,11 +50,11 @@
           Create Your Box
         </button>
 
-      </div> -->
+      </div>
 
-      <!-- 5 JAR OFFER -->
+      <!-- 5 JAR -->
 
-      <!-- <div class="sample-offer-card">
+      <div class="sample-offer-card">
 
         <h3>5 Sample Jars</h3>
 
@@ -71,99 +74,35 @@
 
     </div>
 
-  </section> -->
+  </section>
 
-  <!-- SAMPLE OFFERS SECTION -->
+  <!-- SAMPLE BOX MODAL -->
 
-<section class="sample-offers-section">
+  <div id="sample-modal-overlay" class="sample-modal-overlay">
 
-  <div class="section-heading">
-    <h2>Try Our Sample Collection</h2>
+    <div class="sample-modal">
 
-    <p>
-      Explore our handcrafted flavours with sample jars.
-    </p>
-  </div>
-
-  <div class="sample-offers-container">
-
-    <!-- 3 JAR -->
-
-    <div class="sample-offer-card">
-
-      <h3>3 Sample Jars</h3>
-
-      <p>
-        Choose any 3 flavours of 50g jars
-      </p>
-
-      <div class="sample-price">
-        ₹299
-      </div>
-
-      <button onclick="openSampleBox(3, 299)">
-        Create Your Box
+      <button class="sample-close-btn" onclick="closeSampleModal()">
+        ✕
       </button>
 
-    </div>
+      <h2 id="sample-modal-title">
+        Create Your Sample Box
+      </h2>
 
-    <!-- 5 JAR -->
+      <!-- FLAVOURS -->
 
-    <div class="sample-offer-card">
+      <div class="sample-section">
 
-      <h3>5 Sample Jars</h3>
+        <h3>Select Flavours</h3>
 
-      <p>
-        Choose any 5 flavours of 50g jars
-      </p>
+        <div id="sample-products-list" class="sample-products-list"></div>
 
-      <div class="sample-price">
-        ₹499
       </div>
 
-      <button onclick="openSampleBox(5, 499)">
-        Create Your Box
-      </button>
+      <!-- OIL -->
 
-    </div>
-
-  </div>
-
-</section>
-
-<!-- SAMPLE BOX MODAL -->
-
-<div id="sample-modal-overlay" class="sample-modal-overlay">
-
-  <div class="sample-modal">
-
-    <button
-      class="sample-close-btn"
-      onclick="closeSampleModal()"
-    >
-      ✕
-    </button>
-
-    <h2 id="sample-modal-title">
-      Create Your Sample Box
-    </h2>
-
-    <!-- FLAVOURS -->
-
-    <div class="sample-section">
-
-      <h3>Select Flavours</h3>
-
-      <div
-        id="sample-products-list"
-        class="sample-products-list"
-      ></div>
-
-    </div>
-
-    <!-- OIL -->
-
-    <div class="sample-section">
+      <!-- <div class="sample-section">
 
       <h3>Choose Oil</h3>
 
@@ -206,11 +145,87 @@
       </label>
 
 
-    </div>
+    </div> -->
 
-    <!-- SALT -->
+      <!-- OIL -->
 
-    <div class="sample-section">
+      <div class="sample-section">
+
+        <h3>Choose Oil</h3>
+
+        <div class="sample-options-list">
+
+          <label class="sample-option-item">
+
+            <input type="radio" name="sample-oil" value="Coldpressed mustard oil" checked>
+
+            <div class="sample-option-text">
+              <span class="sample-option-title">
+                Coldpressed Mustard Oil
+              </span>
+
+              <span class="sample-option-subtitle">
+                Traditional authentic achaar flavour
+              </span>
+            </div>
+
+          </label>
+
+          <label class="sample-option-item">
+
+            <input type="radio" name="sample-oil" value="Coldpressed olive oil">
+
+            <div class="sample-option-text">
+              <span class="sample-option-title">
+                Coldpressed Olive Oil
+              </span>
+
+              <span class="sample-option-subtitle">
+                Light and premium taste
+              </span>
+            </div>
+
+          </label>
+
+          <label class="sample-option-item">
+
+            <input type="radio" name="sample-oil" value="Coldpressed groundnut oil">
+
+            <div class="sample-option-text">
+              <span class="sample-option-title">
+                Coldpressed Groundnut Oil
+              </span>
+
+              <span class="sample-option-subtitle">
+                Rich and nutty flavour
+              </span>
+            </div>
+
+          </label>
+
+          <label class="sample-option-item">
+
+            <input type="radio" name="sample-oil" value="Coldpressed coconut oil">
+
+            <div class="sample-option-text">
+              <span class="sample-option-title">
+                Coldpressed Coconut Oil
+              </span>
+
+              <span class="sample-option-subtitle">
+                Mild coastal flavour
+              </span>
+            </div>
+
+          </label>
+
+        </div>
+
+      </div>
+
+      <!-- SALT -->
+
+      <!-- <div class="sample-section">
 
       <h3>Choose Salt</h3>
 
@@ -251,38 +266,119 @@
         common salt
       </label>      
 
-    </div>
+    </div> -->
 
-    <!-- PREVIEW -->
+      <!-- SALT -->
 
-    <div class="sample-section">
+      <div class="sample-section">
 
-      <h3>Selected Jars Preview</h3>
+        <h3>Choose Salt</h3>
 
-      <div
-        id="selected-sample-preview"
-        class="selected-sample-preview"
-      ></div>
+        <div class="sample-options-list">
 
-    </div>
+          <label class="sample-option-item">
 
-    <!-- FOOTER -->
+            <input type="radio" name="sample-salt" value="Rocksalt" checked>
 
-    <div class="sample-footer">
+            <div class="sample-option-text">
 
-      <div id="sample-selection-count">
-        0 Selected
+              <span class="sample-option-title">
+                Rocksalt (Sendha Namak)
+              </span>
+
+              <span class="sample-option-subtitle">
+                Balanced traditional flavour
+              </span>
+
+            </div>
+
+          </label>
+
+          <label class="sample-option-item">
+
+            <input type="radio" name="sample-salt" value="Blacksalt">
+
+            <div class="sample-option-text">
+
+              <span class="sample-option-title">
+                Blacksalt (Kala Namak)
+              </span>
+
+              <span class="sample-option-subtitle">
+                Tangy and earthy flavour
+              </span>
+
+            </div>
+
+          </label>
+
+          <label class="sample-option-item">
+
+            <input type="radio" name="sample-salt" value="Pink salt">
+
+            <div class="sample-option-text">
+
+              <span class="sample-option-title">
+                Pink Salt
+              </span>
+
+              <span class="sample-option-subtitle">
+                Mild mineral-rich taste
+              </span>
+
+            </div>
+
+          </label>
+
+          <label class="sample-option-item">
+
+            <input type="radio" name="sample-salt" value="Common salt">
+
+            <div class="sample-option-text">
+
+              <span class="sample-option-title">
+                Common Salt
+              </span>
+
+              <span class="sample-option-subtitle">
+                Classic everyday taste
+              </span>
+
+            </div>
+
+          </label>
+
+        </div>
+
       </div>
 
-      <button onclick="addSampleBoxToCart()">
-        Add To Cart
-      </button>
+      <!-- PREVIEW -->
+
+      <div class="sample-section">
+
+        <h3>Selected Jars Preview</h3>
+
+        <div id="selected-sample-preview" class="selected-sample-preview"></div>
+
+      </div>
+
+      <!-- FOOTER -->
+
+      <div class="sample-footer">
+
+        <div id="sample-selection-count">
+          0 Selected
+        </div>
+
+        <button onclick="addSampleBoxToCart()">
+          Add To Cart
+        </button>
+
+      </div>
 
     </div>
 
   </div>
-
-</div>
 
   <section class="filters" id="shop">
     <button class="filter-btn active" data-category="all">

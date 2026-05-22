@@ -1065,6 +1065,50 @@ footer {
   color: #8B1E1E;
 }
 
+.sample-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sample-option-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #fafafa;
+}
+
+.sample-option-item:hover {
+  border-color: #8B1E1E;
+  background: #fff5f5;
+}
+
+.sample-option-item input[type="radio"] {
+  accent-color: #8B1E1E;
+  transform: scale(1.15);
+}
+
+.sample-option-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sample-option-title {
+  font-weight: 600;
+  color: #222;
+}
+
+.sample-option-subtitle {
+  font-size: 13px;
+  color: #777;
+  margin-top: 2px;
+}
+
 .sample-products-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px,1fr));

@@ -1318,3 +1318,12 @@ footer {
 .remove-checkout-item:hover {
   background: #ffe2e2;
 }
+
+.inactive-payment {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.inactive-payment input {
+  cursor: not-allowed;
+}

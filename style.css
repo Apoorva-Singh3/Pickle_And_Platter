@@ -1295,3 +1295,26 @@ footer {
   font-size: 14px;
   background: white;
 }
+
+.checkout-bottom {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.remove-checkout-item {
+  background: #fff0f0;
+  color: #b00020;
+  border: 1px solid #ffcccc;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.remove-checkout-item:hover {
+  background: #ffe2e2;
+}

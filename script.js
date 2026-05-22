@@ -905,6 +905,17 @@ function changeCartQty(id, change) {
   updateCartUI();
 }
 
+function removeCheckoutItem(id) {
+
+  cart = cart.filter(item => item.id !== id);
+
+  saveCart();
+
+  updateCartUI();
+
+  renderCheckoutPage();
+}
+
 function openCart() {
 
   document
@@ -1169,9 +1180,20 @@ function renderCheckoutPage() {
         : ""
       }
 
+    <div class="checkout-bottom">
+
     <div class="checkout-price">
       ₹${item.price * item.quantity}
     </div>
+
+    <button
+      class="remove-checkout-item"
+      onclick="removeCheckoutItem(${item.id})"
+    >
+      Remove
+    </button>
+
+  </div>
 
   </div>
 `;

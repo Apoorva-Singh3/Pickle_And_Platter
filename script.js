@@ -907,9 +907,28 @@ function changeCartQty(id, change) {
 
 function removeCheckoutItem(id) {
 
-  cart = cart.filter(item => item.id !== id);
+  const item =
+    cart.find(item => item.id === id);
+
+  if (!item) return;
+
+  // REMOVE ONLY 1 QUANTITY
+
+  item.quantity -= 1;
+
+  // REMOVE PRODUCT COMPLETELY
+  // IF QUANTITY BECOMES 0
+
+  if (item.quantity <= 0) {
+
+    cart = cart.filter(
+      item => item.id !== id
+    );
+  }
 
   saveCart();
+
+  // UPDATE BOTH PAGES/UI
 
   updateCartUI();
 

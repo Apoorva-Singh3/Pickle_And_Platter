@@ -1429,15 +1429,15 @@ function addSampleBoxToCart() {
     return;
   }
 
-  const selectedOil =
-    document.querySelector(
-      'input[name="sample-oil"]:checked'
-    ).value;
+  // const selectedOil =
+  //   document.querySelector(
+  //     'input[name="sample-oil"]:checked'
+  //   ).value;
 
-  const selectedSalt =
-    document.querySelector(
-      'input[name="sample-salt"]:checked'
-    ).value;
+  // const selectedSalt =
+  //   document.querySelector(
+  //     'input[name="sample-salt"]:checked'
+  //   ).value;
 
   const cartItem = {
 
@@ -1451,9 +1451,9 @@ function addSampleBoxToCart() {
 
     size: "50g Sample Combo",
 
-    oil: selectedOil,
+    // oil: selectedOil,
 
-    salt: selectedSalt,
+    // salt: selectedSalt,
 
     price: sampleBoxPrice,
 

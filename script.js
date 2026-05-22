@@ -1319,19 +1319,6 @@ function toggleSampleProduct(product) {
   updateSelectionCount();
 }
 
-// function updateSelectionCount() {
-
-//   const countEl =
-//     document.getElementById(
-//       "sample-selection-count"
-//     );
-
-//   if (!countEl) return;
-
-//   countEl.innerText =
-//     `${selectedSampleProducts.length} / ${sampleBoxQty} Selected`;
-// }
-
 function updateSelectionCount() {
 
   const countEl =
@@ -1341,12 +1328,8 @@ function updateSelectionCount() {
 
   if (!countEl) return;
 
-  const remaining =
-    sampleBoxQty -
-    selectedSampleProducts.length;
-
   countEl.innerText =
-    `${selectedSampleProducts.length} Selected • ${remaining} Remaining`;
+    `${selectedSampleProducts.length} / ${sampleBoxQty} Selected`;
 }
 
 function renderSelectedPreview() {

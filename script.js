@@ -1191,3 +1191,30 @@ function renderOffers() {
   });
 }
 
+function openSampleBox(quantity, price) {
+
+  const sampleItem = {
+
+    id: Date.now(),
+
+    name: `${quantity} Sample Jars Box`,
+
+    image: "images/Pickle_&_Platter_Logo.jpeg",
+
+    size: "50g Sample Combo",
+
+    oil: "Custom",
+
+    salt: "Custom",
+
+    price: price,
+
+    quantity: 1
+  };
+
+  cart.push(sampleItem);
+
+  updateCartUI();
+
+  alert(`${quantity} Sample Jar Box added to cart`);
+}

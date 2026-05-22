@@ -905,30 +905,27 @@ function changeCartQty(id, change) {
   updateCartUI();
 }
 
-function removeCheckoutItem(id) {
+function changeCheckoutQty(id, change) {
 
   const item =
-    cart.find(item => item.id === id);
+    cart.find(i => i.id === id);
 
   if (!item) return;
 
-  // REMOVE ONLY 1 QUANTITY
+  item.quantity += change;
 
-  item.quantity -= 1;
-
-  // REMOVE PRODUCT COMPLETELY
-  // IF QUANTITY BECOMES 0
+  // REMOVE ITEM IF 0
 
   if (item.quantity <= 0) {
 
     cart = cart.filter(
-      item => item.id !== id
+      i => i.id !== id
     );
   }
 
   saveCart();
 
-  // UPDATE BOTH PAGES/UI
+  // UPDATE EVERYWHERE
 
   updateCartUI();
 
@@ -1200,12 +1197,25 @@ function renderCheckoutPage() {
       ₹${item.price * item.quantity}
     </div>
 
-    <button
-      class="remove-checkout-item"
-      onclick="removeCheckoutItem(${item.id})"
-    >
-      Remove
-    </button>
+    <div class="checkout-qty">
+
+      <button
+        onclick="changeCheckoutQty(${item.id}, -1)"
+      >
+        −
+      </button>
+
+      <span>${item.quantity}</span>
+
+      <button
+        onclick="changeCheckoutQty(${item.id}, 1)"
+      >
+        +
+      </button>
+
+    </div>
+
+  </div>
 
   </div>
 

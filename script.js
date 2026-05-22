@@ -1280,41 +1280,124 @@ function renderSampleProducts() {
   });
 }
 
-function toggleSampleProduct(product, element) {
+// function toggleSampleProduct(product, element) {
 
-  const exists =
-    selectedSampleProducts.find(
+//   const exists =
+//     selectedSampleProducts.find(
+//       p => p.name === product.name
+//     );
+
+//   if (exists) {
+
+//     selectedSampleProducts =
+//       selectedSampleProducts.filter(
+//         p => p.name !== product.name
+//       );
+
+//     element.classList.remove("active");
+
+//   } else {
+
+//     if (
+//       selectedSampleProducts.length >= sampleBoxQty
+//     ) {
+
+//       alert(
+//         `You can only select ${sampleBoxQty} flavours`
+//       );
+
+//       return;
+//     }
+
+//     selectedSampleProducts.push(product);
+
+//     element.classList.add("active");
+//   }
+
+//   updateSamplePreview();
+// }
+
+function toggleSampleProduct(product) {
+
+  const existingIndex =
+    selectedSampleProducts.findIndex(
       p => p.name === product.name
     );
 
-  if (exists) {
+  // REMOVE IF ALREADY SELECTED
 
-    selectedSampleProducts =
-      selectedSampleProducts.filter(
-        p => p.name !== product.name
-      );
+  if (existingIndex > -1) {
 
-    element.classList.remove("active");
+    selectedSampleProducts.splice(existingIndex, 1);
 
   } else {
 
-    if (
-      selectedSampleProducts.length >= sampleBoxQty
-    ) {
+    // LIMIT SELECTION
+
+    if (selectedSampleProducts.length >= currentSampleOffer.qty) {
 
       alert(
-        `You can only select ${sampleBoxQty} flavours`
+        `You can only choose ${currentSampleOffer.qty} jars`
       );
 
       return;
     }
 
     selectedSampleProducts.push(product);
-
-    element.classList.add("active");
   }
 
-  updateSamplePreview();
+  renderSelectedPreview();
+
+  renderSampleProducts();
+}
+
+function renderSelectedPreview() {
+
+  const preview =
+    document.getElementById("selected-sample-preview");
+
+  preview.innerHTML = "";
+
+  if (selectedSampleProducts.length === 0) {
+
+    preview.innerHTML = `
+      <p>No flavours selected yet</p>
+    `;
+
+    return;
+  }
+
+  selectedSampleProducts.forEach((product, index) => {
+
+    const div = document.createElement("div");
+
+    div.classList.add("preview-jar");
+
+    div.innerHTML = `
+
+      <button
+        class="remove-preview-btn"
+        onclick="removeSampleProduct(${index})"
+      >
+        ×
+      </button>
+
+      <img src="${product.image}" alt="">
+
+      <p>${product.name}</p>
+    `;
+
+    preview.appendChild(div);
+  });
+}
+
+function removeSampleProduct(index) {
+
+  selectedSampleProducts.splice(index, 1);
+
+  renderSelectedPreview();
+
+  renderSampleProducts();
 }
 
 function updateSamplePreview() {

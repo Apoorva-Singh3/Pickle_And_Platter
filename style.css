@@ -1179,3 +1179,28 @@ footer {
   border-radius: 12px;
   cursor: pointer;
 }
+
+.preview-jar {
+  width: 90px;
+  text-align: center;
+  position: relative;
+}
+
+.remove-preview-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: #8B1E1E;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.remove-preview-btn:hover {
+  background: #a52a2a;
+}

@@ -586,10 +586,6 @@ let selectedProduct = null;
 
 let selectedQuantities = {};
 
-let selectedOil = "Coldpressed mustard oil";
-
-let selectedSalt = "rocksalt(sendhanamak)";
-
 const productList = document.getElementById("product-list");
 
 let cart = JSON.parse(localStorage.getItem("pickleCart")) || [];
@@ -740,12 +736,6 @@ function closeModal() {
 
 function confirmAddToCart() {
 
-  selectedOil =
-    document.querySelector('input[name="oil"]:checked').value;
-
-  selectedSalt =
-    document.querySelector('input[name="salt"]:checked').value;
-
   let addedSomething = false;
 
   selectedProduct.sizes.forEach((s, i) => {
@@ -756,25 +746,19 @@ function confirmAddToCart() {
 
       addedSomething = true;
 
-      // CHECK IF SAME CUSTOMIZATION ALREADY EXISTS
+      // CHECK IF SAME ITEM ALREADY EXISTS
 
       const existingItem = cart.find(item =>
 
         item.name === selectedProduct.name &&
-        item.size === s.size &&
-        item.oil === selectedOil &&
-        item.salt === selectedSalt
+        item.size === s.size
       );
 
       if (existingItem) {
 
-        // increase quantity
-
         existingItem.quantity += qty;
 
       } else {
-
-        // create new cart item
 
         const cartItem = {
 
@@ -785,10 +769,6 @@ function confirmAddToCart() {
           image: selectedProduct.image,
 
           size: s.size,
-
-          oil: selectedOil,
-
-          salt: selectedSalt,
 
           price: s.price,
 
@@ -810,8 +790,6 @@ function confirmAddToCart() {
   updateCartUI();
 
   closeModal();
-
-  // openCart();
 }
 
 function updateCartUI() {
@@ -872,11 +850,7 @@ function updateCartUI() {
         <h4>${item.name}</h4>
 
         <p>${item.size}</p>
-
-        <p>Oil: ${item.oil}</p>
-
-        <p>Salt: ${item.salt}</p>
-
+        
         <div class="cart-item-price">
           ₹${item.price * item.quantity}
         </div>
@@ -1095,11 +1069,7 @@ function renderCheckoutPage() {
         <h4>${item.name}</h4>
 
         <p>Size: ${item.size}</p>
-
-        <p>Oil: ${item.oil}</p>
-
-        <p>Salt: ${item.salt}</p>
-
+        
         <p>Qty: ${item.quantity}</p>
 
         <div class="checkout-price">

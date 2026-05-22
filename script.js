@@ -1233,7 +1233,19 @@ function renderSampleProducts() {
 
   container.innerHTML = "";
 
-  products.forEach(product => {
+  // products.forEach(product => {
+    const achaarProducts = products.filter(product =>
+
+      product.category ===
+        "fruit-based-indian-achaar"
+
+      ||
+
+      product.category ===
+        "non-vegetarian-achaar"
+    );
+
+    achaarProducts.forEach(product => {
 
     const div = document.createElement("div");
     
@@ -1250,12 +1262,6 @@ function renderSampleProducts() {
 
     div.onclick = () =>
       toggleSampleProduct(product, div);
-
-    // div.innerHTML = `
-    //   <img src="${product.image}" alt="">
-
-    //   <h4>${product.name}</h4>
-    // `;
 
     div.innerHTML = `
 

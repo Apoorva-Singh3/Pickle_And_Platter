@@ -770,6 +770,10 @@ function confirmAddToCart() {
 
           size: s.size,
 
+          oil: "",
+
+          salt: "",
+
           price: s.price,
 
           quantity: qty
@@ -1062,27 +1066,143 @@ function renderCheckoutPage() {
 
     div.innerHTML = `
 
-      <img src="${item.image}" alt="">
+  <img src="${item.image}" alt="">
 
-      <div class="checkout-item-info">
+  <div class="checkout-item-info">
 
-        <h4>${item.name}</h4>
+    <h4>${item.name}</h4>
 
-        <p>Size: ${item.size}</p>
-        
-        <p>Qty: ${item.quantity}</p>
+    <p>Size: ${item.size}</p>
 
-        <div class="checkout-price">
-          ₹${item.price * item.quantity}
+    <p>Qty: ${item.quantity}</p>
+
+    ${item.name.toLowerCase().includes("pickle")
+        ||
+        item.name.toLowerCase().includes("achaar")
+
+        ? `
+
+        <div class="checkout-customization">
+
+          <h5>Choose Oil</h5>
+
+          <select
+            onchange="updateCheckoutOil(${item.id}, this.value)"
+          >
+            <option value="">
+              Select Oil
+            </option>
+
+            <option
+              value="Coldpressed Mustard Oil"
+              ${item.oil === "Coldpressed Mustard Oil" ? "selected" : ""}
+            >
+              Coldpressed Mustard Oil
+            </option>
+
+            <option
+              value="Coldpressed Olive Oil"
+              ${item.oil === "Coldpressed Olive Oil" ? "selected" : ""}
+            >
+              Coldpressed Olive Oil
+            </option>
+
+            <option
+              value="Coldpressed Groundnut Oil"
+              ${item.oil === "Coldpressed Groundnut Oil" ? "selected" : ""}
+            >
+              Coldpressed Groundnut Oil
+            </option>
+
+            <option
+              value="Coldpressed Coconut Oil"
+              ${item.oil === "Coldpressed Coconut Oil" ? "selected" : ""}
+            >
+              Coldpressed Coconut Oil
+            </option>
+
+          </select>
+
+          <h5>Choose Salt</h5>
+
+          <select
+            onchange="updateCheckoutSalt(${item.id}, this.value)"
+          >
+
+            <option value="">
+              Select Salt
+            </option>
+
+            <option
+              value="Rock Salt"
+              ${item.salt === "Rock Salt (Sendha Namak)" ? "selected" : ""}
+            >
+              Rock Salt
+            </option>
+
+            <option
+              value="Black Salt"
+              ${item.salt === "Black Salt (Kala Namak)" ? "selected" : ""}
+            >
+              Black Salt
+            </option>
+
+            <option
+              value="Pink Salt"
+              ${item.salt === "Pink Salt" ? "selected" : ""}
+            >
+              Pink Salt
+            </option>
+
+            <option
+              value="Common Salt"
+              ${item.salt === "Common Salt" ? "selected" : ""}
+            >
+              Common Salt
+            </option>
+
+          </select>
+
         </div>
 
-      </div>
-    `;
+      `
+        : ""
+      }
 
+    <div class="checkout-price">
+      ₹${item.price * item.quantity}
+    </div>
+
+  </div>
+`;
     checkoutItems.appendChild(div);
   });
 
   checkoutTotal.innerText = `₹${total}`;
+}
+
+function updateCheckoutOil(id, value) {
+
+  const item =
+    cart.find(i => i.id === id);
+
+  if (!item) return;
+
+  item.oil = value;
+
+  saveCart();
+}
+
+function updateCheckoutSalt(id, value) {
+
+  const item =
+    cart.find(i => i.id === id);
+
+  if (!item) return;
+
+  item.salt = value;
+
+  saveCart();
 }
 
 function setupCheckoutForm() {
@@ -1204,21 +1324,21 @@ function renderSampleProducts() {
   container.innerHTML = "";
 
   // products.forEach(product => {
-    const achaarProducts = products.filter(product =>
+  const achaarProducts = products.filter(product =>
 
-      product.category ===
-        "fruit-based-indian-achaar"
+    product.category ===
+    "fruit-based-indian-achaar"
 
-      ||
+    ||
 
-      product.category ===
-        "non-vegetarian-achaar"
-    );
+    product.category ===
+    "non-vegetarian-achaar"
+  );
 
-    achaarProducts.forEach(product => {
+  achaarProducts.forEach(product => {
 
     const div = document.createElement("div");
-    
+
     div.classList.add("sample-product-card");
 
     const isSelected =
@@ -1253,9 +1373,9 @@ function renderSampleProducts() {
     <h4>${product.name}</h4>
   `;
 
-      container.appendChild(div);
-    });
-  }
+    container.appendChild(div);
+  });
+}
 
 function toggleSampleProduct(product) {
 
@@ -1399,16 +1519,6 @@ function addSampleBoxToCart() {
     return;
   }
 
-  // const selectedOil =
-  //   document.querySelector(
-  //     'input[name="sample-oil"]:checked'
-  //   ).value;
-
-  // const selectedSalt =
-  //   document.querySelector(
-  //     'input[name="sample-salt"]:checked'
-  //   ).value;
-
   const cartItem = {
 
     id: Date.now(),
@@ -1420,10 +1530,6 @@ function addSampleBoxToCart() {
       selectedSampleProducts[0].image,
 
     size: "50g Sample Combo",
-
-    // oil: selectedOil,
-
-    // salt: selectedSalt,
 
     price: sampleBoxPrice,
 

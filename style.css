@@ -1275,3 +1275,23 @@ footer {
     padding: 25px 20px;
   }
 }
+
+.checkout-customization {
+  margin-top: 15px;
+}
+
+.checkout-customization h5 {
+  margin: 12px 0 6px;
+  font-size: 14px;
+  color: #8B1E1E;
+}
+
+.checkout-customization select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background: white;
+}

@@ -1236,9 +1236,7 @@ function renderSampleProducts() {
   products.forEach(product => {
 
     const div = document.createElement("div");
-
-    // div.classList.add("sample-product-card");
-
+    
     div.classList.add("sample-product-card");
 
     const isSelected =
@@ -1253,52 +1251,35 @@ function renderSampleProducts() {
     div.onclick = () =>
       toggleSampleProduct(product, div);
 
+    // div.innerHTML = `
+    //   <img src="${product.image}" alt="">
+
+    //   <h4>${product.name}</h4>
+    // `;
+
     div.innerHTML = `
+
+    <div class="sample-image-wrapper">
+
       <img src="${product.image}" alt="">
 
-      <h4>${product.name}</h4>
-    `;
+      ${isSelected
+        ? `
+          <div class="selected-overlay">
+            ✓
+          </div>
+        `
+        : ""
+      }
 
-    container.appendChild(div);
-  });
-}
+    </div>
 
-// function toggleSampleProduct(product, element) {
+    <h4>${product.name}</h4>
+  `;
 
-//   const exists =
-//     selectedSampleProducts.find(
-//       p => p.name === product.name
-//     );
-
-//   if (exists) {
-
-//     selectedSampleProducts =
-//       selectedSampleProducts.filter(
-//         p => p.name !== product.name
-//       );
-
-//     element.classList.remove("active");
-
-//   } else {
-
-//     if (
-//       selectedSampleProducts.length >= sampleBoxQty
-//     ) {
-
-//       alert(
-//         `You can only select ${sampleBoxQty} flavours`
-//       );
-
-//       return;
-//     }
-
-//     selectedSampleProducts.push(product);
-
-//     element.classList.add("active");
-//   }
-
-//   updateSamplePreview();
-// }
+      container.appendChild(div);
+    });
+  }
 
 function toggleSampleProduct(product) {
 
@@ -1338,6 +1319,19 @@ function toggleSampleProduct(product) {
   updateSelectionCount();
 }
 
+// function updateSelectionCount() {
+
+//   const countEl =
+//     document.getElementById(
+//       "sample-selection-count"
+//     );
+
+//   if (!countEl) return;
+
+//   countEl.innerText =
+//     `${selectedSampleProducts.length} / ${sampleBoxQty} Selected`;
+// }
+
 function updateSelectionCount() {
 
   const countEl =
@@ -1347,8 +1341,12 @@ function updateSelectionCount() {
 
   if (!countEl) return;
 
+  const remaining =
+    sampleBoxQty -
+    selectedSampleProducts.length;
+
   countEl.innerText =
-    `${selectedSampleProducts.length} / ${sampleBoxQty} Selected`;
+    `${selectedSampleProducts.length} Selected • ${remaining} Remaining`;
 }
 
 function renderSelectedPreview() {
@@ -1485,4 +1483,15 @@ function addSampleBoxToCart() {
   closeSampleModal();
 
   alert("Sample box added to cart");
+}
+
+function clearSampleSelection() {
+
+  selectedSampleProducts = [];
+
+  renderSelectedPreview();
+
+  renderSampleProducts();
+
+  updateSelectionCount();
 }

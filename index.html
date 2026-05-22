@@ -22,6 +22,9 @@
 
   <section class="sample-offers-section">
 
+    <p id="sample-selection-count" class="selection-count">
+      0 Selected
+    </p>
     <div class="section-heading">
       <h2>Try Our Sample Collection</h2>
 
@@ -55,6 +58,10 @@
       <!-- 5 JAR -->
 
       <div class="sample-offer-card">
+
+        <div class="best-value-badge">
+          Best Value
+        </div>
 
         <h3>5 Sample Jars</h3>
 
@@ -273,6 +280,13 @@
       <!-- FOOTER -->
 
       <div class="sample-footer">
+
+        <button
+          class="clear-selection-btn"
+          onclick="clearSampleSelection()"
+        >
+          Clear All
+        </button>
 
         <div id="sample-selection-count">
           0 Selected

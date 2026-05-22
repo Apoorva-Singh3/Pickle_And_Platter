@@ -1191,34 +1191,6 @@ function renderOffers() {
   });
 }
 
-// function openSampleBox(quantity, price) {
-
-//   const sampleItem = {
-
-//     id: Date.now(),
-
-//     name: `${quantity} Sample Jars Box`,
-
-//     image: "images/Pickle_&_Platter_Logo.jpeg",
-
-//     size: "50g Sample Combo",
-
-//     oil: "Custom",
-
-//     salt: "Custom",
-
-//     price: price,
-
-//     quantity: 1
-//   };
-
-//   cart.push(sampleItem);
-
-//   updateCartUI();
-
-//   alert(`${quantity} Sample Jar Box added to cart`);
-// }
-
 let sampleBoxQty = 0;
 
 let sampleBoxPrice = 0;
@@ -1265,7 +1237,18 @@ function renderSampleProducts() {
 
     const div = document.createElement("div");
 
+    // div.classList.add("sample-product-card");
+
     div.classList.add("sample-product-card");
+
+    const isSelected =
+      selectedSampleProducts.find(
+        p => p.name === product.name
+      );
+
+    if (isSelected) {
+      div.classList.add("active");
+    }
 
     div.onclick = () =>
       toggleSampleProduct(product, div);
@@ -1334,10 +1317,12 @@ function toggleSampleProduct(product) {
 
     // LIMIT SELECTION
 
-    if (selectedSampleProducts.length >= currentSampleOffer.qty) {
+    if (
+      selectedSampleProducts.length >= sampleBoxQty
+    ) {
 
       alert(
-        `You can only choose ${currentSampleOffer.qty} jars`
+        `You can only choose ${sampleBoxQty} jars`
       );
 
       return;
@@ -1349,6 +1334,21 @@ function toggleSampleProduct(product) {
   renderSelectedPreview();
 
   renderSampleProducts();
+
+  updateSelectionCount();
+}
+
+function updateSelectionCount() {
+
+  const countEl =
+    document.getElementById(
+      "sample-selection-count"
+    );
+
+  if (!countEl) return;
+
+  countEl.innerText =
+    `${selectedSampleProducts.length} / ${sampleBoxQty} Selected`;
 }
 
 function renderSelectedPreview() {

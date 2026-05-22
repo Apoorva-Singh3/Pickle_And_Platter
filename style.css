@@ -1141,17 +1141,10 @@ footer {
   text-align: center;
 }
 
-/* .selected-sample-preview {
+.selected-sample-preview {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
-} */
-
-.selected-sample-preview {
-  display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(90px, 1fr));
-  gap: 15px;
 }
 
 .preview-jar {

@@ -1251,47 +1251,6 @@ function updateCheckoutSalt(id, value) {
   saveCart();
 }
 
-// function setupCheckoutForm() {
-
-//   const form =
-//     document.getElementById("checkout-form");
-
-//   if (!form) return;
-
-//   form.addEventListener("submit", (e) => {
-
-//     e.preventDefault();
-
-//     const orderData = {
-
-//       customer: {
-//         name: document.getElementById("customer-name").value,
-//         phone: document.getElementById("customer-phone").value,
-//         email: document.getElementById("customer-email").value,
-//         address: document.getElementById("customer-address").value,
-//         city: document.getElementById("customer-city").value,
-//         pincode: document.getElementById("customer-pincode").value
-//       },
-
-//       items: cart,
-
-//       createdAt: new Date().toISOString()
-//     };
-
-//     console.log("ORDER DATA", orderData);
-
-//     alert("Order placed successfully!");
-
-//     cart = [];
-
-//     localStorage.removeItem("pickleCart");
-
-//     updateCartUI();
-
-//     window.location.href = "index.html";
-//   });
-// }
-
 function setupCheckoutForm() {
 
   const form =

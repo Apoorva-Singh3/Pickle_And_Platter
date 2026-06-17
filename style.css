@@ -1327,3 +1327,8 @@ footer {
 .inactive-payment input {
   cursor: not-allowed;
 }
+
+.place-order-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

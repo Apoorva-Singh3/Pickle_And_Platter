@@ -1251,45 +1251,239 @@ function updateCheckoutSalt(id, value) {
   saveCart();
 }
 
+// function setupCheckoutForm() {
+
+//   const form =
+//     document.getElementById("checkout-form");
+
+//   if (!form) return;
+
+//   form.addEventListener("submit", (e) => {
+
+//     e.preventDefault();
+
+//     const orderData = {
+
+//       customer: {
+//         name: document.getElementById("customer-name").value,
+//         phone: document.getElementById("customer-phone").value,
+//         email: document.getElementById("customer-email").value,
+//         address: document.getElementById("customer-address").value,
+//         city: document.getElementById("customer-city").value,
+//         pincode: document.getElementById("customer-pincode").value
+//       },
+
+//       items: cart,
+
+//       createdAt: new Date().toISOString()
+//     };
+
+//     console.log("ORDER DATA", orderData);
+
+//     alert("Order placed successfully!");
+
+//     cart = [];
+
+//     localStorage.removeItem("pickleCart");
+
+//     updateCartUI();
+
+//     window.location.href = "index.html";
+//   });
+// }
+
 function setupCheckoutForm() {
 
   const form =
-    document.getElementById("checkout-form");
+    document.getElementById(
+      "checkout-form"
+    );
 
   if (!form) return;
 
-  form.addEventListener("submit", (e) => {
+  let isSubmitting = false;
 
-    e.preventDefault();
+  form.addEventListener(
+    "submit",
+    async (e) => {
 
-    const orderData = {
+      e.preventDefault();
 
-      customer: {
-        name: document.getElementById("customer-name").value,
-        phone: document.getElementById("customer-phone").value,
-        email: document.getElementById("customer-email").value,
-        address: document.getElementById("customer-address").value,
-        city: document.getElementById("customer-city").value,
-        pincode: document.getElementById("customer-pincode").value
-      },
+      if (isSubmitting) return;
 
-      items: cart,
+      if (cart.length === 0) {
 
-      createdAt: new Date().toISOString()
-    };
+        alert(
+          "Your cart is empty"
+        );
 
-    console.log("ORDER DATA", orderData);
+        return;
+      }
 
-    alert("Order placed successfully!");
+      const button =
+        document.querySelector(
+          ".place-order-btn"
+        );
 
-    cart = [];
+      isSubmitting = true;
 
-    localStorage.removeItem("pickleCart");
+      button.disabled = true;
 
-    updateCartUI();
+      button.innerText =
+        "Placing Order...";
 
-    window.location.href = "index.html";
-  });
+      try {
+
+        const customer = {
+
+          name:
+            document
+              .getElementById(
+                "customer-name"
+              )
+              .value
+              .trim(),
+
+          phone:
+            document
+              .getElementById(
+                "customer-phone"
+              )
+              .value
+              .trim(),
+
+          email:
+            document
+              .getElementById(
+                "customer-email"
+              )
+              .value
+              .trim(),
+
+          address:
+            document
+              .getElementById(
+                "customer-address"
+              )
+              .value
+              .trim(),
+
+          city:
+            document
+              .getElementById(
+                "customer-city"
+              )
+              .value
+              .trim(),
+
+          pincode:
+            document
+              .getElementById(
+                "customer-pincode"
+              )
+              .value
+              .trim()
+        };
+
+        const total =
+          cart.reduce(
+            (sum, item) =>
+              sum +
+              item.price *
+              item.quantity,
+            0
+          );
+
+        const orderId =
+          "PP" +
+          Date.now();
+
+        const orderDate =
+          new Date()
+            .toLocaleString(
+              "en-IN",
+              {
+                timeZone:
+                  "Asia/Kolkata"
+              }
+            );
+
+        const orderData = {
+
+          orderId,
+
+          orderDate,
+
+          paymentMethod:
+            "Cash On Delivery",
+
+          customer,
+
+          items: cart,
+
+          orderTotal: total
+        };
+
+        const response =
+          await fetch(
+            "https://script.google.com/macros/s/AKfycbzRj17qqSwPrKM-N4XA_hNhyEsMBGP8f9nHwKkgFJokn1sQqlvWFJTyvltfpOZOQh-miA/exec",
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body:
+                JSON.stringify(
+                  orderData
+                )
+            }
+          );
+
+        const result =
+          await response.json();
+
+        if (!result.success) {
+
+          throw new Error(
+            result.error
+          );
+        }
+
+        alert(
+          `Order Placed Successfully!\nOrder ID: ${orderId}`
+        );
+
+        cart = [];
+
+        localStorage.removeItem(
+          "pickleCart"
+        );
+
+        updateCartUI();
+
+        window.location.href =
+          "index.html";
+
+      } catch (error) {
+
+        console.error(error);
+
+        alert(
+          "Failed to place order. Please try again."
+        );
+
+        button.disabled = false;
+
+        button.innerText =
+          "Place Order";
+
+        isSubmitting = false;
+      }
+    }
+  );
 }
 
 function renderOffers() {

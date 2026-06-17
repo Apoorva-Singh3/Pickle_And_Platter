@@ -1432,22 +1432,44 @@ function setupCheckoutForm() {
           JSON.stringify(orderData)
         );
 
-        await fetch(
-          WEB_APP_URL,
-          {
-            method: "POST",
-            body: formData,
-            mode: "no-cors"
-          }
-        );
+        try {
 
-        if (!result.success) {
-
-          throw new Error(
-            result.error
+          await fetch(
+            "https://script.google.com/macros/s/AKfycbzRj17qqSwPrKM-N4XA_hNhyEsMBGP8f9nHwKkgFJokn1sQqlvWFJTyvltfpOZOQh-miA/exec",
+            {
+              method: "POST",
+              body: formData,
+              mode: "no-cors"
+            }
           );
-        }
 
+          alert(
+            `Order Placed Successfully!\nOrder ID: ${orderId}`
+          );
+
+          cart = [];
+
+          localStorage.removeItem("pickleCart");
+
+          updateCartUI();
+
+          window.location.href = "index.html";
+
+        } catch (error) {
+
+          console.error(error);
+
+          alert(
+            "Unable to submit order. Please try again."
+          );
+
+          button.disabled = false;
+
+          button.innerText = "Place Order";
+
+          isSubmitting = false;
+        }
+        
         alert(
           `Order Placed Successfully!\nOrder ID: ${orderId}`
         );

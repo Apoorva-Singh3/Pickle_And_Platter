@@ -1335,6 +1335,14 @@ function setupCheckoutForm() {
               .value
               .trim(),
 
+          state:
+            document
+              .getElementById(
+                "customer-state"
+              )
+              .value
+              .trim(),
+    
           pincode:
             document
               .getElementById(

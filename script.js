@@ -1424,26 +1424,22 @@ function setupCheckoutForm() {
           orderTotal: total
         };
 
-        const response =
-          await fetch(
-            "https://script.google.com/macros/s/AKfycbzRj17qqSwPrKM-N4XA_hNhyEsMBGP8f9nHwKkgFJokn1sQqlvWFJTyvltfpOZOQh-miA/exec",
-            {
-              method: "POST",
+        const formData =
+          new FormData();
 
-              headers: {
-                "Content-Type":
-                  "application/json"
-              },
+        formData.append(
+          "orderData",
+          JSON.stringify(orderData)
+        );
 
-              body:
-                JSON.stringify(
-                  orderData
-                )
-            }
-          );
-
-        const result =
-          await response.json();
+        await fetch(
+          WEB_APP_URL,
+          {
+            method: "POST",
+            body: formData,
+            mode: "no-cors"
+          }
+        );
 
         if (!result.success) {
 

@@ -409,6 +409,30 @@ const products = [
     ],
     image: "images/Raw Turmeric Achaar.png"
   },
+{
+    name: "Garlic Pickle",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+
+      { size: "100g", price: 160 },
+      { size: "250g", price: 370 },
+      { size: "500g", price: 660 }
+    ],
+    image: "images/Garlic Pickle.png"
+  },
+{
+    name: "Lasodha Pickle",
+    category: "fruit-based-indian-achaar",
+    // price: 319,
+    sizes: [
+
+      { size: "100g", price: 180 },
+      { size: "250g", price: 420 },
+      { size: "500g", price: 750 }
+    ],
+    image: "images/Lasodha Pickle.png"
+  },
 
   // Indian Chutneys
   {
